@@ -11,6 +11,13 @@ class Item
   {
     $this->db = $db;
   }
+  public function getSearchList($search){//検索フォーム
+    $table = ' item ';
+    $col = ' item_id, item_name, price,image, ctg_id ';
+    $where = 'item_name like '."'%".$search."%'";
+    $res = $this->db->select($table, $col,$where);
+    return $res;
+  }
 
   //カテゴリーリストの取得
   public function getCategoryList()
