@@ -7,12 +7,12 @@ class Common
   private $dataArr = [];
 
   private $errArr = [];
-
+  public $db = null;
   
   //初期化
-  public function __construct()
+  public function __construct($db = null)
   {
-    
+    $this->db = $db;
   }
 
   public function errorCheck($dataArr)
@@ -28,6 +28,7 @@ class Common
     $this->telCheck();
     $this->mailCheck();
     $this->passCheck();
+    $this->mailDuplicate();
 
     return $this->errArr;
 
@@ -102,6 +103,18 @@ class Common
     if(preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+[a-zA-Z0-9\._-]+$/' , $this->dataArr['email'])===0){
       $this->errArr['email'] = 'メールアドレスを正しい形式で入力してください';
     }
+    }
+
+    public function mailDuplicate()
+    {
+    $table = ' member ';
+    $col = ' email=' . "'". $this->dataArr['email']."'";
+    $res = $this->db->count($table, $col);
+    if($res>0){
+      $this->errArr['email'] = 'そのメールアドレスはすでに登録されています';
+      
+    }
+    return $res;
     }
   
 

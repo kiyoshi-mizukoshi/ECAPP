@@ -7,6 +7,7 @@ require_once dirname(__FILE__) . '/Bootstrap.class.php';
 use shopping\lib\initMaster;
 use shopping\lib\PDODatabase;
 use shopping\lib\Common;
+use shopping\lib\Member;
 
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
@@ -17,13 +18,14 @@ $db_user = $_ENV['DB_USER'];
 $db_pass = $_ENV['DB_PASS'];
 $db_type = $_ENV['DB_TYPE'];
 $db = new PDODatabase($db_host,$db_user,$db_pass,$db_name,$db_type);
-global $db;
 
 //テンプレート設定
 $loader = new \Twig_Loader_Filesystem(Bootstrap::TEMPLATE_DIR);
 $twig = new \Twig_Environment($loader,['cache' => Bootstrap::CACHE_DIR]);
 
 $common = new Common($db);
+$member = new Member($db);
+
 //モード判定（どの画面から来たかの判断）
 //登録画面から来た場合
 if(isset($_POST['confirm'])===true) {
@@ -72,30 +74,11 @@ switch ($mode) {
 
         case 'complete' : //登録完了
           $dataArr = $_POST;
+          $dataArr['password']=sha1($dataArr['password']);//パスワードのハッシュ化
 
           //↓この情報はいらないので外しておく
           unset($dataArr['complete']);
-          $column = '';
-          $insData = '';
-
-
-          //foreachのなかでSQL文を作る
-          foreach($dataArr as $key => $value){
-            $column .= $key . ',';
-            $insData .= $value . ',';
-
-            
-          }
-
-          $query = "INSERT INTO member ("
-                  . $column
-                  . " regist_date"
-                  . ") VALUES("
-                  . $insData
-                  ." NOW() "
-                  .")";
-
-                  $res= $db->query($query);
+                  $res= $member->insertData($dataArr);
                     //登録成功時は完成ページへ
                     if($res===true){
                     header('Location:' . Bootstrap::ENTRY_URL. 'complete.php');//ページ遷移する関数
@@ -114,6 +97,8 @@ switch ($mode) {
 }
 
 
+
+
 list($yearArr,$monthArr,$dayArr) = initMaster::getDate();
 
 $context['yearArr'] = $yearArr;
@@ -124,4 +109,4 @@ $context['dataArr'] = $dataArr;
 $context['errArr'] = $errArr;
 $template = $twig->loadTemplate($template);
 $template->display($context);
-
+?>

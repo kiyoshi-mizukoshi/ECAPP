@@ -166,6 +166,7 @@ class PDODatabase
               . ") VALUES ("
               . $preSt//?
               . ") ";
+              var_dump($sql);
 
     $this->sqlLogInfo($sql, $insDataVal);
 
@@ -239,7 +240,12 @@ class PDODatabase
     //ログを残す関数 第一引数＝残す文字,第二引数,出力先、第三引数、書き込み先
     //sqlを実行した履歴を残すため
   }
+
+
 }
+
+
+
 
 
 

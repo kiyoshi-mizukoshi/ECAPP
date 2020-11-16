@@ -14,7 +14,7 @@ class Item
   public function getSearchList($search){//検索フォーム
     $table = ' item ';
     $col = ' item_id, item_name, price,image, ctg_id ';
-    $where = 'item_name like '."'%".$search."%'";
+    $where = 'item_name like '."'%".$search."%'" . ' or detail like '."'%".$search."%'";
     $res = $this->db->select($table, $col,$where);
     return $res;
   }
