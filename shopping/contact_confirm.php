@@ -25,10 +25,8 @@ $ses = new Session($db);
 
 $dataArr = $_POST;
 $_SESSION['contact']=$_POST;
-var_dump($_SESSION['contact']);
 
 $res= $contact->insertContact($dataArr);
-//登録成功時は完成ページへ
 
 $context = [];
 $context['dataArr'] = $dataArr;

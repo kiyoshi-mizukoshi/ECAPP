@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マイページ</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>登録日時</th>
+      <td>{{regist[0].regist_date}}</td>
+    </tr>
+
+    <tr>
+      <th>お名前（氏名)</th>
+      <td>{{regist[0].family_name}} {{regist[0].first_name}}</td>
+    </tr>
+    <tr>
+      <th>お名前（かな）</th>
+      <td>
+        {{regist[0].family_name_kana}} {{regist[0].first_name_kana}}
+      </td>
+    </tr>
+    <tr>
+      <th>生年月日</th>
+      <td>{{regist[0].year}}年 {{regist[0].month}}月 {{regist[0].day}}日</td>
+    </tr>
+    <tr>
+      <th>郵便番号</th>
+      <td>{{regist[0].zip1}} - {{regist[0].zip2}}</td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td>{{regist[0].address}}</td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td>{{regist[0].email}}</td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td>{{regist[0].tel1}} - {{regist[0].tel2}} - {{regist[0].tel3}}</td>
+    </tr>
+
+  </table>
+  <a href="list.php">トップへ</a>
+  <a href="delete.php">退会する</a>
+  
+
+</body>
+</html>
