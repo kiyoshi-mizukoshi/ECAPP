@@ -20,7 +20,7 @@
             <ul>
               <li class="image"><img src="{{constant('shopping\\Bootstrap::ENTRY_URL')}}images/{{value.image}}" alt="{{value.item_name}}"></li>
               <li class="name">{{value.item_name}}</li>
-              <li class="price">&yen;{{value.price|number_format(0, '.', ',')}}</li>
+              <li class="price">&yen;{{value.price|number_format(0, '.', ',')}}×{{value.num}}＝&yen;{{value.price|number_format(0, '.', ',')*value.num}}</li>
               <li><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}cart.php?crt_id={{value.crt_id}}">削除</a></li>
             </ul>
           </div>

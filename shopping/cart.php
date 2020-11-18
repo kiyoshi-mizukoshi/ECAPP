@@ -29,7 +29,12 @@ $twig = new \Twig_Environment($loader, ['cache' =>Bootstrap::CACHE_DIR]);
 //セッションに、セッションIDを設定する
 //$ses->checkSession();いれなくてもいい
 $customer_no = $_SESSION['customer_no'];
+//ログインされていなければ、ログイン画面に飛ばす
+if(isset($_SESSION['id'])=='')
+{
+  header('Location: ' . Bootstrap::ENTRY_URL. 'login_form.php');
 
+}
 //item_idを取得する
 $item_id = (isset($_GET['item_id']) === true && preg_match('/^\d+$/' , $_GET['item_id']) === 1) ? $_GET['item_id'] : '';
 $crt_id = (isset($_GET['crt_id']) === true && preg_match('/^\d+$/' , $_GET['crt_id']) === 1) ? $_GET['crt_id'] : '';
@@ -47,7 +52,6 @@ if($item_id !== '') {
   
 }
 
-
 //crt_idが設定されていれば、削除する
 if($crt_id !== '') {
   $res = $cart->delCartData($crt_id);
@@ -55,7 +59,7 @@ if($crt_id !== '') {
 
 //カート情報を取得する
 $dataArr = $cart->getCartData($customer_no);
-
+var_dump($dataArr);
 //アイテム数と合計金額を取得する。listは配列をそれぞれの変数にわける
 //$cartSumAndNumData = $cart->getItemAndSumPrice($customer_no);
 list($sumNum, $sumPrice) = $cart->getItemAndSumPrice($customer_no);

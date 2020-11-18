@@ -28,6 +28,17 @@ $loader = new \Twig_Loader_Filesystem(Bootstrap::TEMPLATE_DIR);
 $twig = new \Twig_Environment($loader, ['cache' =>Bootstrap::CACHE_DIR]);
 
 //SessionKeyを見て、DBへの登録状態をチェックする
+if(isset($_SESSION['name'])){
+  $username = $_SESSION['name'];
+
+}
+if (isset($_SESSION['id'])) {//ログインしているとき
+    $msg = 'こんにちは' . $username . 'さん';
+    $link = '<a href="logout.php">ログアウト</a>';
+} else {//ログインしていない時
+    $msg = 'ログインしていません';
+    $link = '<a href="login_form.php">ログイン</a>';
+}
 $ses->checkSession();
 $ctg_id = (isset($_GET[('ctg_id')]) === true && preg_match('/^[0-9]+$/' , $_GET['ctg_id'])===1) ? $_GET['ctg_id'] : '';
 
@@ -38,6 +49,8 @@ $dataArr = $itm->getItemList($ctg_id);
 $context = [];
 $context['cateArr'] = $cateArr;
 $context['dataArr'] = $dataArr;
+$context['msg'] = $msg;
+$context['link'] = $link;
 $template = $twig->loadTemplate('list.html.twig');
 $template->display($context); 
 

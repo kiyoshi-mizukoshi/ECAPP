@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link  href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
+  <title>ログイン</title>
+</head>
+<body>
+<p>ログインしてください</p>
+  <form action="login.php" method="post">
+    <table>
+      <tr>
+        <th>メールアドレス</th>
+        <td>
+          <input type="text" name="email" value="{{dataArr.email}}" size="40">
+          {% if errArr.email | length > 0 %}<br><span class="red">{{errArr.email}}</span>{% endif %}
+
+        </td>
+      </tr>
+      <tr>
+        <th>パスワード</th>
+        <td>
+          <input type="password" name="password" value="{{dataArr.password}}" size="16">
+          {% if errArr.password | length > 0 %}<br><span class="red">{{errArr.password}}</span>{% endif %}
+        </td>
+      </tr>
+    </table>
+    <div>
+      <input type="submit" value="ログイン">
+    </div>
+
+  </form>
+</body>
+</html>

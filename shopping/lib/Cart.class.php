@@ -39,9 +39,9 @@ class Cart
     //c.item_id = i.item_id ';
     // WHERE
     // c.customer_no = ? AND c.delete_flg = ? ';
-    $table = ' cart c  LEFT JOIN item i  ON c.item_id = i.item_id ';
-    $column = ' c.crt_id, i.item_id, i.item_name, i.price,i.image ';
-    $where = ' c.customer_no = ? AND c.delete_flg = ? ';
+    $table = ' cart c LEFT JOIN item i  ON c.item_id = i.item_id ';
+    $column = '   i.item_id, i.item_name, i.price, i.image ,sum(num) as num';
+    $where = ' c.customer_no = ? AND c.delete_flg = ? group by i.item_id ';
     $arrVal = [$customer_no, 0];
 
     return $this->db->select($table, $column, $where, $arrVal);

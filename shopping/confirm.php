@@ -28,6 +28,9 @@ $member = new Member($db);
 
 //モード判定（どの画面から来たかの判断）
 //登録画面から来た場合
+if(empty($_POST)){
+  $mode = 'regist';
+}
 if(isset($_POST['confirm'])===true) {
   $mode = 'confirm';
 }
@@ -41,6 +44,11 @@ if(isset($_POST['complete'])===true){
 }
 //ボタンのモードよって処理を変える
 switch ($mode) {
+
+  case 'regist':
+    header('Location: ' . Bootstrap::ENTRY_URL. 'regist.php');
+
+  break;
   case 'confirm'://新規登録
                  //データを受け継ぐ
                  //↓この情報は入力には必要ない
