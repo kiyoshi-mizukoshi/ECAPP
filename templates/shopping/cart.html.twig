@@ -24,11 +24,15 @@
               <li><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}cart.php?crt_id={{value.crt_id}}">削除</a></li>
               <li><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}cart.php?item_id={{value.item_id}}">追加</a></li>
             </ul>
-          </div>
-            
+          </div> 
         {% endfor %}
       {% endif %}
     </div>
   </div>
+  <form action="" method="POST">
+    <input type="checkbox" name="remove" value="1">
+    <input type="submit" value="カートを空にする"　name="remove">
+  </form>
+
 </body>
 </html>

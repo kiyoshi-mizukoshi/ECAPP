@@ -58,6 +58,18 @@ class Cart
     return $this->db->update($table, $insData, $where, $arrWhereVal);
   }
 
+  public function AllDelCartData($customer_no)
+  {
+    $table = ' cart ';
+    $insData = ['delete_flg' => 1];
+    $where =  'customer_no = ?';
+    $arrWhereVal = [$customer_no];
+
+    return $this->db->update($table, $insData, $where, $arrWhereVal);
+  }
+
+
+
   //アイテム数と合計金額を取得する
   public function getItemAndSumPrice($customer_no)
   {

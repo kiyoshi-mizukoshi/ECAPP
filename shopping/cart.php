@@ -51,6 +51,10 @@ if($item_id !== '') {
   }
   
 }
+if(!empty($_POST))
+{
+  $res = $cart->AllDelCartData($customer_no);
+}
 
 //crt_idが設定されていれば、削除する
 if($crt_id !== '') {
