@@ -22,6 +22,7 @@
               <li class="name">{{value.item_name}}</li>
               <li class="price">&yen;{{value.price|number_format(0, '.', ',')}}×{{value.num}}＝&yen;{{value.price|number_format(0, '.', ',')*value.num}}</li>
               <li><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}cart.php?crt_id={{value.crt_id}}">削除</a></li>
+              <li><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}cart.php?item_id={{value.item_id}}">追加</a></li>
             </ul>
           </div>
             

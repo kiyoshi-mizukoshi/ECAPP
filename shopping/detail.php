@@ -48,7 +48,7 @@ $itemData = $itm->getItemDetailData($item_id);
 
 $context = [];
 $context['cateArr'] = $cateArr;
-$context['itemData'] = $itemData[0];//なぜ０が必要かは、＄itemDataをvar_dumpしてみよう=多次元連想配列に一つしか配列がないため！
+$context['itemData'] = $itemData[0];
 $template = $twig->loadTemplate('detail.html.twig');
 $template->display($context);
 ?>

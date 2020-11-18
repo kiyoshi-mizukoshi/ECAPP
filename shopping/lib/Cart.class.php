@@ -40,7 +40,7 @@ class Cart
     // WHERE
     // c.customer_no = ? AND c.delete_flg = ? ';
     $table = ' cart c LEFT JOIN item i  ON c.item_id = i.item_id ';
-    $column = '   i.item_id, i.item_name, i.price, i.image ,sum(num) as num';
+    $column = '  MAX(c.crt_id) as crt_id, i.item_id, i.item_name, i.price, i.image ,sum(num) as num';
     $where = ' c.customer_no = ? AND c.delete_flg = ? group by i.item_id ';
     $arrVal = [$customer_no, 0];
 
@@ -61,17 +61,6 @@ class Cart
   //アイテム数と合計金額を取得する
   public function getItemAndSumPrice($customer_no)
   {
-    // 合計金額
-    // SELECT
-    // SUM( i.price ) AS totalPrice ";
-    // FROM
-    // cart c
-    // LEFT JOIN
-    // item i
-    // ON 
-    // c.item_id = i.item_id "
-    // WHERE
-    // c.customer_no = ? AND c.delete_flg =?';
     $table = " cart c LEFT JOIN item i ON c.item_id = i.item_id ";
     $column = " SUM( i.price ) AS totalPrice ";
     $where = ' c.customer_no = ? AND c.delete_flg = ?';

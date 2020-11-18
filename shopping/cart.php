@@ -59,7 +59,6 @@ if($crt_id !== '') {
 
 //カート情報を取得する
 $dataArr = $cart->getCartData($customer_no);
-var_dump($dataArr);
 //アイテム数と合計金額を取得する。listは配列をそれぞれの変数にわける
 //$cartSumAndNumData = $cart->getItemAndSumPrice($customer_no);
 list($sumNum, $sumPrice) = $cart->getItemAndSumPrice($customer_no);

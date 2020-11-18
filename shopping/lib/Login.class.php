@@ -18,7 +18,6 @@ class Login
     $col = ' * ';
     $where = 'email=' ."'".$dataArr['email'] ."'". ' AND password= '. "'".$dataArr['password']."'";
     $res = $this->db->select($table, $col,$where);
-    var_dump($res);
     return $res;
 
   }
