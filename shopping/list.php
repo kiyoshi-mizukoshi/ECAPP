@@ -27,21 +27,21 @@ $itm = new Item($db);
 $loader = new \Twig_Loader_Filesystem(Bootstrap::TEMPLATE_DIR);
 $twig = new \Twig_Environment($loader, ['cache' =>Bootstrap::CACHE_DIR]);
 
-//SessionKeyを見て、DBへの登録状態をチェックする
 if(isset($_SESSION['name'])){
   $username = $_SESSION['name'];
 
 }
 if (isset($_SESSION['id'])) {//ログインしているとき
-    $msg = 'こんにちは' . $username . 'さん';
+    $msg = 'こんにちは、' . $username . 'さん';
     $link = '<a href="logout.php">ログアウト</a>';
+    $regist = '';
 } else {//ログインしていない時
     $msg = 'ログインしていません';
     $link = '<a href="login_form.php">ログイン</a>';
+    $regist = '<a href="regist.php">会員登録</a>';
 }
 $ses->checkSession();
 $ctg_id = (isset($_GET[('ctg_id')]) === true && preg_match('/^[0-9]+$/' , $_GET['ctg_id'])===1) ? $_GET['ctg_id'] : '';
-
 //カテゴリーリスト（一覧）を取得する
 $cateArr = $itm->getCategoryList();
 //商品リストを取得する
@@ -51,6 +51,8 @@ $context['cateArr'] = $cateArr;
 $context['dataArr'] = $dataArr;
 $context['msg'] = $msg;
 $context['link'] = $link;
+$context['regist'] = $regist;
+
 $template = $twig->loadTemplate('list.html.twig');
 $template->display($context); 
 

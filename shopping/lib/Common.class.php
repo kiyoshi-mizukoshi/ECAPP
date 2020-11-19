@@ -108,7 +108,7 @@ class Common
     public function mailDuplicate()
     {
     $table = ' member ';
-    $col = ' email=' . "'". $this->dataArr['email']."'";
+    $col = ' email=' . "'". $this->dataArr['email']."' and " . 'delete_flg= 0';
     $res = $this->db->count($table, $col);
     if($res>0){
       $this->errArr['email'] = 'そのメールアドレスはすでに登録されています';

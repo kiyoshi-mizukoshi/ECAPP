@@ -16,7 +16,7 @@ class Login
   {
     $table = ' member';
     $col = ' * ';
-    $where = 'email=' ."'".$dataArr['email'] ."'". ' AND password= '. "'".$dataArr['password']."'";
+    $where = 'email=' ."'".$dataArr['email'] ."'". ' AND password= '. "'".$dataArr['password']."' and " . 'delete_flg= 0 ';
     $res = $this->db->select($table, $col,$where);
     return $res;
 

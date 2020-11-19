@@ -35,7 +35,7 @@ $res= $login->selectData($dataArr);
 if(!empty($res)){
   $msg = 'ログインしました。';
   $_SESSION['id'] = $res[0]['mem_id'];
-    $_SESSION['name'] = $res[0]['family_name'];
+    $_SESSION['name'] = $res[0]['family_name'].$res[0]['first_name'];
   $link = '<a href="list.php">ホーム</a>';
 }else {
 //登録失敗時は登録画面に戻る

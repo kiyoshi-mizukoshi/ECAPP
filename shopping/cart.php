@@ -28,13 +28,14 @@ $twig = new \Twig_Environment($loader, ['cache' =>Bootstrap::CACHE_DIR]);
 
 //セッションに、セッションIDを設定する
 //$ses->checkSession();いれなくてもいい
-$customer_no = $_SESSION['customer_no'];
 //ログインされていなければ、ログイン画面に飛ばす
 if(isset($_SESSION['id'])=='')
 {
   header('Location: ' . Bootstrap::ENTRY_URL. 'login_form.php');
 
 }
+$customer_no = $_SESSION['id'];
+
 //item_idを取得する
 $item_id = (isset($_GET['item_id']) === true && preg_match('/^\d+$/' , $_GET['item_id']) === 1) ? $_GET['item_id'] : '';
 $crt_id = (isset($_GET['crt_id']) === true && preg_match('/^\d+$/' , $_GET['crt_id']) === 1) ? $_GET['crt_id'] : '';
