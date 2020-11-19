@@ -14,7 +14,6 @@ class Contact
   {
     $table = ' contact ';
     $dataArr['regist_date']= date("Y-m-d H:i:s") ;
-    var_dump($dataArr);
     return $this->db->insert($table, $dataArr);
   }
 

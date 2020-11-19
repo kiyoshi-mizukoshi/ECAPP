@@ -23,10 +23,14 @@ $twig = new \Twig_Environment($loader,['cache' => Bootstrap::CACHE_DIR]);
 $contact = new Contact($db);
 $ses = new Session($db);
 
-$dataArr = $_POST;
-$_SESSION['contact']=$_POST;
+$dataArr=$_SESSION['join'];
+var_dump($_SESSION['join']);
+if(!empty($_POST)){
+  $res= $contact->insertContact($dataArr);
+  header('Location: ' . Bootstrap::ENTRY_URL. 'contact_complete.php');
 
-$res= $contact->insertContact($dataArr);
+
+}
 
 $context = [];
 $context['dataArr'] = $dataArr;

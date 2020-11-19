@@ -23,9 +23,9 @@ $ses = new Session($db);
 
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
-$to = $_SESSION['contact']['mail'];
-$title = $_SESSION['contact']['name'];
-$message = $_SESSION['contact']['inquiry'];
+$to = $_SESSION['join']['mail'];
+$title = $_SESSION['join']['name'];
+$message = $_SESSION['join']['inquiry'];
 $headers = "From: $header ";
 
   if(mb_send_mail($to, $title, $message,$headers))

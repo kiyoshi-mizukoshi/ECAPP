@@ -166,7 +166,6 @@ class PDODatabase
               . ") VALUES ("
               . $preSt//?
               . ") ";
-              var_dump($sql);
 
     $this->sqlLogInfo($sql, $insDataVal);
 
