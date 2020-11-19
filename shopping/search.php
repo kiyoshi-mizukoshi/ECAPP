@@ -26,11 +26,8 @@ $twig = new \Twig_Environment($loader, ['cache' =>Bootstrap::CACHE_DIR]);
 $search = (isset($_GET['search'])===true ) ? $_GET['search'] : '';
 
 $searchArr=$itm->getSearchList($search);
-if($search==''){
-  $searchArr='';
-}
 $errmsg='';
-if($searchArr == ''){
+if($searchArr == null){
   $errmsg='検索結果がありません。';
 }
 
