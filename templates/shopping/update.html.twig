@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/common.js"></script>
+  <link  href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
+  <title>会員情報変更</title>
+</head>
+<body>
+  <h2>会員情報変更</h2>
+  <input type="hidden" name="entry_url" id="entry_url" value="{{constant('shopping\\Bootstrap::ENTRY_URL')}}">
+  <form action="" method="post">
+    <table>
+      <tr>
+        <th>お名前（氏名）<span class="red">*</span></th>
+          <td>
+            <input type="text" name="family_name" value="{{regist[0].family_name}}">
+            <input type="text" name="first_name" value="{{regist[0].first_name}}">
+            {% if errArr.family_name | length > 0 %}<br><span class="red">{{errArr.family_name}}</span>{% endif %}
+            {% if errArr.first_name | length > 0 %}<br><span class="red">{{errArr.first_name}}</span>{% endif %}
+          </td>
+      </tr>
+      <tr>
+        <th>お名前（かな）</th>
+        <td><input type="text" name="family_name_kana" value="{{regist[0].family_name_kana}}">
+            <input type="text" name="first_name_kana" value="{{regist[0].first_name_kana}}">
+        </td>
+      </tr>
+      <tr>
+        <th>生年月日<span class="red">*</span></th>
+          <td>
+            <select name="year">
+              {% for index, label in yearArr %}
+              <option value="{{index}}" {% if regist[0].year == index %} selected {% endif %}>{{label}}</option>
+              {% endfor %}
+            </select>
+            <select name='month'>
+              {% for index, label in monthArr %}
+              <option value="{{index}}"{% if regist[0].month == index %} selected {% endif %}>{{label}}</option>
+              {% endfor %}
+            </select>
+            <select name='day'>
+              {% for index, label in dayArr %}
+              <option value="{{index}}"{% if regist[0].day == index %} selected {% endif %}>{{label}}</option>
+              {% endfor %}
+            </select>
+            {% if errArr.year | length > 0 %}<br><span class="red">{{errArr.year}}</span>{% endif %}
+            {% if errArr.month | length > 0 %}<br><span class="red">{{errArr.month}}</span>{% endif %}
+            {% if errArr.day | length > 0 %}<br><span class="red">{{errArr.day}}</span>{% endif %}
+          </td>
+      </tr>
+      <tr>
+          <th>郵便番号<span class="red">*</span></th>
+        <td>
+          <input type="text" name="zip1" value="{{regist[0].zip1}}" id="zip1" size="3" maxlength="3"> 
+          -
+          <input type="text" name="zip2" value="{{regist[0].zip2}}" id="zip2" size="4" maxlength="4">
+          <input type="button" name="address_search" value="〒から住所を入力" id="address_search">
+          {% if errArr.zip1 | length > 0 %}<br><span class="red">{{errArr.zip1}}</span>{% endif %}
+          {% if errArr.zip2 | length > 0 %}<br><span class="red">{{errArr.zip2}}</span>{% endif %}
+        </td>
+      </tr>
+      <tr>
+          <th>住所<span class="red">*</span></th>
+        <td>
+        <input type="text" name="address" value="{{regist[0].address}}" id="address" size="40">
+        {% if errArr.address | length > 0 %}<br><span class="red">{{errArr.address}}</span>{% endif %}
+        </td>
+      </tr>
+      <tr>
+          <th>メールアドレス<span class="red">*</span></th>
+        <td>
+          <input type="text" name="email" value="{{regist[0].email}}" size="40">
+          {% if errArr.email | length > 0 %}<br><span class="red">{{errArr.email}}</span>{% endif %}
+        </td>
+      </tr>
+      <tr>
+          <th>電話番号<span class="red">*</span></th>
+        <td>
+          <input type="text" name="tel1" value="{{regist[0].tel1}}" size="6" maxlength="6"> -
+          <input type="text" name="tel2" value="{{regist[0].tel2}}" size="6" maxlength="6"> -
+          <input type="text" name="tel3" value="{{regist[0].tel3}}" size="6" maxlength="6"> 
+          {% if errArr.tel1 | length > 0 %}<br><span class="red">{{errArr.tel1}}</span>{% endif %}
+          {% if errArr.tel2 | length > 0 %}<br><span class="red">{{errArr.tel2}}</span>{% endif %}
+          {% if errArr.tel3 | length > 0 %}<br><span class="red">{{errArr.tel3}}</span>{% endif %}
+        </td>
+      </tr>
+      
+    </table>
+    <div>
+      <input type="submit" name="confirm" value="確認画面へ">
+      <button type="submit">  <a href="mypage.php">会員情報へ戻る</a></button>
+    </div>
+  </form>
+  
+</body>
+</html>

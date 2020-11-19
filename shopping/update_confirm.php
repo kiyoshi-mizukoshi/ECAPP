@@ -32,11 +32,20 @@ if(isset($_SESSION['id'])=='')
 
 }
 
-$regist = $mypage->getRegist();
-$_SESSION['regist'] = $regist;
+
+$dataArr=$_SESSION['confirm'];
+$id=$_SESSION['id'];
+if(!empty($_POST['complete'])){
+  $update= $mypage->updateRegist($dataArr,$id);
+  header('Location: ' . Bootstrap::ENTRY_URL. 'update_complete.php');
+
+}
+
+
+
 $context = [];
-$context['regist'] = $regist;
-$template = $twig->loadTemplate('mypage.html.twig');
+$context['dataArr'] = $dataArr;
+$template = $twig->loadTemplate('update_confirm.html.twig');
 $template->display($context); 
 
 

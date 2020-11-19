@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会員情報変更確認</title>
+</head>
+<body>
+<h2>会員情報変更確認</h2>
+  <form action="" method="post">
+    <table>
+      <tr>
+        <th>お名前（氏名)</th>
+        <td>{{dataArr.family_name}} {{dataArr.first_name}}</td>
+      </tr>
+      <tr>
+        <th>お名前（かな）</th>
+        <td>
+          {{dataArr.family_name_kana}} {{dataArr.first_name_kana}}
+        </td>
+      </tr>
+      <tr>
+        <th>生年月日</th>
+        <td>{{dataArr.year}}年 {{dataArr.month}}月 {{dataArr.day}}日</td>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td>{{dataArr.zip1}} - {{dataArr.zip2}}</td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td>{{dataArr.address}}</td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td>{{dataArr.email}}</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td>{{dataArr.tel1}} - {{dataArr.tel2}} - {{dataArr.tel3}}</td>
+      </tr>
+
+    </table>
+    <div>
+      <button type="button" name="complete" value=""><a href="update.php?action=rewrite">修正する</a></button>
+      <input type="submit" name="complete" value="変更する">
+    </div>
+  </form>
+</body>
+</html>
