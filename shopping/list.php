@@ -35,9 +35,11 @@ if (isset($_SESSION['id'])) {//ログインしているとき
     $msg = 'こんにちは、' . $username . 'さん';
     $link = '<a href="logout.php">ログアウト</a>';
     $regist = '';
+    $gest = '';
 } else {//ログインしていない時
     $msg = 'ログインしていません';
     $link = '<a href="login_form.php">ログイン</a>';
+    $gest ='<a href="gestlogin.php">ゲストログイン</a>';
     $regist = '<a href="regist.php">会員登録</a>';
 }
 $ses->checkSession();
@@ -50,6 +52,7 @@ $context = [];
 $context['cateArr'] = $cateArr;
 $context['dataArr'] = $dataArr;
 $context['msg'] = $msg;
+$context['gest'] = $gest;
 $context['link'] = $link;
 $context['regist'] = $regist;
 

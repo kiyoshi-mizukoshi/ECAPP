@@ -22,6 +22,15 @@ class Login
 
   }
 
+  public function gestLogin()
+  {
+    $table = ' member';
+    $col = ' * ';
+    $where = 'mem_id= 22';
+    $res = $this->db->select($table, $col,$where);
+    return $res;
+
+  }
 
 }
 ?>
