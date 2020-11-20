@@ -68,6 +68,18 @@ class Cart
     return $this->db->update($table, $insData, $where, $arrWhereVal);
   }
 
+  public function buyCart($value)
+  {
+    $table = ' history ';
+    $insData = $value;
+    foreach($insData as $val){
+      return $this->db->insert($table, $insData);
+
+    }
+
+
+  }
+
 
 
   //アイテム数と合計金額を取得する

@@ -41,7 +41,6 @@ class Mypage
     
     return $this->db->update($table, $insData, $where, $arrWhereVal);  
 
-//[SQL_LOG:2020-11-19 19:46:44]:  UPDATE  member  SET family_name =? ,first_name =? ,family_name_kana =? ,first_name_kana =? ,year =? ,month =? ,day =? ,zip1 =? ,zip2 =? ,address =? ,email =? ,tel1 =? ,tel2 =? ,tel3 =? ,password =?  WHERE  mem_id = ?  [水越,聖士,みずこし,きよし,1994,09,28,121,0822,東京都足立区西竹の塚2-2-7,928kiyoshi@gmail.com,090,1261,6760,a642a77abd7d4f51bf9226ceaf891fcbb5b299b8,水越,聖士,みずこし,きよし,1994,09,28,121,0822,東京都足立区西竹の塚2-2-7,928kiyoshi@gmail.com,090,1261,6760,a642a77abd7d4f51bf9226ceaf891fcbb5b299b8]
 
   }
 
@@ -56,6 +55,15 @@ class Mypage
     
     return $this->db->update($table, $insData, $where, $arrWhereVal);  
 
+  }
+
+  public function historyData($customer_no)
+  {
+    $table = ' history ';
+    $col = ' * ';
+    $where = 'customor_no=' . "'".$customer_no."'";
+    $res = $this->db->select($table, $col,$where);
+    return $res;
   }
 
 

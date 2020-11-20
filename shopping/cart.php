@@ -52,9 +52,15 @@ if($item_id !== '') {
   }
   
 }
-if(!empty($_POST))
-{
+if(!empty($_POST['remove']))
+{  
   $res = $cart->AllDelCartData($customer_no);
+}
+
+if(!empty($_POST['confirm']))
+{
+  header('Location: ' . Bootstrap::ENTRY_URL. 'cart_confirm.php');
+
 }
 
 //crt_idが設定されていれば、削除する
@@ -67,6 +73,9 @@ $dataArr = $cart->getCartData($customer_no);
 //アイテム数と合計金額を取得する。listは配列をそれぞれの変数にわける
 //$cartSumAndNumData = $cart->getItemAndSumPrice($customer_no);
 list($sumNum, $sumPrice) = $cart->getItemAndSumPrice($customer_no);
+$_SESSION['cartdata'] = $dataArr;
+$_SESSION['sumnum']= $sumNum;
+$_SESSION['sumprice']= $sumPrice;
 
 $context = [];
 $context['sumNum'] = $sumNum;
