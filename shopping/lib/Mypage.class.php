@@ -45,6 +45,19 @@ class Mypage
 
   }
 
+  public function UpdatePassword($password,$id)
+  {
+    
+    $password +=['update_date'=>date("Y-m-d H:i:s")];
+    $table = ' member ';
+    $insData = $password;
+    $where = ' mem_id = ? ';
+    $arrWhereVal = [$id];
+    
+    return $this->db->update($table, $insData, $where, $arrWhereVal);  
+
+  }
+
 
   public function errorCheck($join)
   {
