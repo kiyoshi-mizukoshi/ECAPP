@@ -69,12 +69,14 @@ var_dump($join);
     $_SESSION['confirm']=$join;
   }
 }
-$_REQUEST['action']='';
-if($_REQUEST['action']=='rewrite')
-{
-  $regist=[];
-  $regist[]=$_SESSION['confirm'];
+if(!empty($_GET)){
+  if($_GET['action']=='rewrite')
+  {
+    $regist=[];
+    $regist[]=$_SESSION['confirm'];
+  }
 }
+
 
 
 $context = [];
