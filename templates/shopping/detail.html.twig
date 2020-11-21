@@ -27,8 +27,11 @@
         </dl>
       </div>
       <div class="cart_in">
-        <input type="button" name="back" value="一覧へ戻る" onclick="history.back(); return false;">
         <input type="button" name="cart_in" value="ショッピングカートへ入れる" id="cart_in">
+        <form action="" method="POST">
+          <input type="submit" name="favorite" value={{msg}}>
+        </form>
+        <a href="list.php">一覧へ戻る</a>
       </div>
     </div>
   </div>
