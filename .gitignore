@@ -1,3 +1,4 @@
 .env
 templates_c/
 logs/
+vendor/
