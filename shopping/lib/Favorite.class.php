@@ -14,7 +14,7 @@ class Favorite
   public function selectFavorite($customer_no, $item_id)
   {
     $table = ' favorite ';
-    $col = ' item_id=' . "'". $item_id. ' and customer_no=' . $customer_no ."' and " . 'delete_flg= 0';
+    $col = ' item_id=' .  $item_id. ' and customer_no=' . $customer_no .' and delete_flg= 0';
     $res = $this->db->count($table, $col);
     return $res;
 }

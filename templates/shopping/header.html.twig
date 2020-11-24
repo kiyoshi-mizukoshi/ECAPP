@@ -1,0 +1,38 @@
+  <header class="header">
+    <div class="header-inner inner ">
+      <h1 class="header-logo logo"><a href="list.php">Chouette</a></h1>
+      <div class="header-right">
+        <div class="header-item"><form action="search.php" method="GET" class="is-pc">
+          <input type="text" name="search" value="" required class="item_search">
+          <button type="submit" value="検索開始" class="fas"><i class="fas fa-search"></i></button>
+        </form></div>
+        <div class="header-item"><a href="cart.php"><i class="fas fa-cart-plus"></i></a></div>
+        <div class="header-item">{{name|raw}}</div>
+      </div>
+      <button type="button" class="drawer-toggle drawer-hamburger">
+        <span class="sr-only">toggle navigation</span>
+        <span class="drawer-hamburger-icon"></span>
+      </button>
+      <nav class="drawer-nav header-nav">
+        <ul class="drawer-menu header-nav-list">
+          <li class="header-nav-item"><a class="header-nav-item-link" href="list.php">HOME</a></li>
+          <li class="header-nav-item"><a class="header-nav-item-link" href="#feature">CATEGORY</a></li>
+            {% for value in cateArr %}
+          <li class="header-nav-item">
+          <a class="header-nav-item-link" href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}list.php?ctg_id={{value.ctg_id}}#products">-{{value.category_name}}</a>
+          </li>
+          {% endfor %}
+          <li class="header-nav-item"><a class="header-nav-item-link" href="cart.php">CART</a></li>
+          <li class="header-nav-item"><a class="header-nav-item-link" href="favorite.php">FAVORITE</a></li>
+          <li class="header-nav-item"><a class="header-nav-item-link" href="mypage.php">MYPAGE</a></li>
+          <li class="header-nav-item"><a class="header-nav-item-link" href="contact.php">CONTACT</a></li>
+          <li class="header-nav-item">{{link |raw}}</li>
+          <li class="header-nav-item">{{regist | raw}}</li>
+          <li class="header-nav-item"><form action="search.php" method="GET">
+            <input type="text" name="search" value="" required class="item_search">
+            <button type="submit" value="検索開始" class="fas"><i class="fas fa-search"></i></button>
+          </form></li>
+        </ul>
+      </nav>
+    </div>
+    </header>

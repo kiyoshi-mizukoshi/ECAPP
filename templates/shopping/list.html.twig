@@ -1,41 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- reset css -->
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+<!-- drawer.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+<!-- jquery & iScroll -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+<!-- drawer.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+<!-- wow -->
+<script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/wow.min.js"></script>
+<link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/animate.css">
+<link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/swiper.min.css">
+<script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/swiper.min.js"></script>
+
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
   <title>list</title>
 </head>
-<body>
-  <div id="wrapper">
-  <p>{{msg}}</p>
-  {{link | raw}}
-  {{regist | raw}}
-  {{gest | raw}}
-  <a href="contact.php">お問い合わせ</a>
-  <a href="cart.php">ショッピングカート</a>
-  <a href="favorite.php">お気に入りリスト</a>
-  <a href="mypage.php">マイページ</a>
+<body class="drawer drawer--right">
+  {% include 'header.html.twig' %}
 
+    <main class="main">
 
-  <form action="search.php" method="GET">
-    <input type="text" name="search" value="" required>
-    <input type="submit" value="検索開始">
-  </form>
-  {% include 'category_menu.html.twig' %}
-    <div id="item_list">
-      {% for value in dataArr %}
-      <div class="item">
-        <ul>
-          <li class="name"><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}detail.php?item_id={{value.item_id}}">{{value.item_name}}</a></li>
-          <li class="price">&yen;{{value.price|number_format(0, '.' , ',')}}</li>
-          <li class="image"><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}detail.php?item_id={{value.item_id}}">
-          <img src="{{constant('shopping\\Bootstrap::ENTRY_URL')}}images/{{value.image}}" alt="{{value.item_name}}"></a></li>
-          <li class="detail"><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}detail.php?item_id={{value.item_id}}">詳細</a></li>
-        </ul>
+      <div class="top inner wow fadeIn">
+        <div class="swiper-container slider1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url(http://localhost:8888/ECAPP/shopping/images/988186_s.jpg);"></div>
+            <div class="swiper-slide" style="background-image: url(http://localhost:8888/ECAPP/shopping/images/118588_s.jpg);"></div>
+            <div class="swiper-slide" style="background-image: url(http://localhost:8888/ECAPP/shopping/images/sample.jpeg);"></div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination horizonal-pagination"></div>
+          <!-- Add Arrows -->
+        </div>
+        <div class="top-message">
+          <div class="top-message-title">“素敵” な<br class="is-pc"> アクセサリーを！</div>
+          <div class="top-message">全て一点物の ハンドメイドアクセサリー「Chouette」</div>
+        </div>
+
       </div>
+      <!-- /.top -->
+
+    <div class="products inner" >
+      <h2 class="util-title" id="products">Products</h2>
+
+      <ul class="products-list ">
+        {% for value in dataArr %}
+
+        <li class="products-item wow fadeInUp">
+          <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}detail.php?item_id={{value.item_id}}" class="products-item-link">
+            <div class="products-item-picture"><img src="{{constant('shopping\\Bootstrap::ENTRY_URL')}}images/{{value.image}}" alt=""></div>
+            <div class="products-item-body">
+              <p class="products-item-title">{{value.item_name}}</p>
+              <p class="products-item-cost">&yen;{{value.price|number_format(0, '.' , ',')}}</p>
+            </div>
+          </a>
+        </li>
       {% endfor %}
+    </ul>
     </div>
-  </div>
+    <!-- /.products -->
+    </main>
+    <!-- /.main -->
+
+    {% include 'footer.html.twig' %}
+    <script>
+    new WOW().init();
+    </script>  
 </body>
 </html>

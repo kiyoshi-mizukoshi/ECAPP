@@ -32,15 +32,15 @@ if(isset($_SESSION['name'])){
 
 }
 if (isset($_SESSION['id'])) {//ログインしているとき
-    $msg = 'こんにちは、' . $username . 'さん';
-    $link = '<a href="logout.php">ログアウト</a>';
+    $name =  $_SESSION['name']. 'さん';
+    $link = '<a href="logout.php" class="header-nav-item-link">ログアウト</a>';
     $regist = '';
     $gest = '';
 } else {//ログインしていない時
-    $msg = 'ログインしていません';
-    $link = '<a href="login_form.php">ログイン</a>';
-    $gest ='<a href="gestlogin.php">ゲストログイン</a>';
-    $regist = '<a href="regist.php">会員登録</a>';
+    $name = '<a class="header-nav-item-link" href="login_form.php">Login</a>';
+    $link = '<a class="header-nav-item-link" href="login_form.php">ログイン</a>';
+    $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
+    $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
 }
 $ses->checkSession();
 $ctg_id = (isset($_GET[('ctg_id')]) === true && preg_match('/^[0-9]+$/' , $_GET['ctg_id'])===1) ? $_GET['ctg_id'] : '';
@@ -51,7 +51,7 @@ $dataArr = $itm->getItemList($ctg_id);
 $context = [];
 $context['cateArr'] = $cateArr;
 $context['dataArr'] = $dataArr;
-$context['msg'] = $msg;
+$context['name'] = $name;
 $context['gest'] = $gest;
 $context['link'] = $link;
 $context['regist'] = $regist;
