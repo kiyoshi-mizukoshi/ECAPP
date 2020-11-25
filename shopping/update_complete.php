@@ -8,6 +8,7 @@ use shopping\Bootstrap;
 $loader = new \Twig_Loader_Filesystem(Bootstrap::TEMPLATE_DIR);
 $twig = new \Twig_Environment($loader, ['cache' => Bootstrap::CACHE_DIR]);
 
+
 $template = $twig->loadTemplate('update_complete.html.twig');
 $template->display([]);
 

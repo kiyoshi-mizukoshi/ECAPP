@@ -12,13 +12,19 @@ use shopping\lib\Mypage;
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-$db_host = $_ENV['DB_HOST'];
-$db_name = $_ENV['DB_NAME'];
-$db_user = $_ENV['DB_USER'];
-$db_pass = $_ENV['DB_PASS'];
-$db_type = $_ENV['DB_TYPE'];
+$DB_HOST = $_ENV["DB_HOST"];
+$DB_DATABASE = $_ENV["DB_DATABASE"];
+$DB_USERNAME = $_ENV["DB_USERNAME"];
+$DB_PASSWORD = $_ENV["DB_PASSWORD"];
+$db_type = $_ENV["DB_TYPE"];
 
-$db = new PDODatabase($db_host,$db_user,$db_pass,$db_name,$db_type);
+$db = new PDODatabase(
+    $DB_HOST,
+    $DB_USERNAME,
+    $DB_PASSWORD,
+    $DB_DATABASE,
+    $db_type
+);
 $ses = new Session($db);
 $mypage = new Mypage($db);
 

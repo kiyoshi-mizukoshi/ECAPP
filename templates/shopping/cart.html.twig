@@ -20,7 +20,6 @@
 <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/animate.css">
 <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/swiper.min.css">
 <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/swiper.min.js"></script>
-
   <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
 
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
@@ -60,13 +59,12 @@
       {% endif %}
   <form action="" method="POST" class="form-wrap">
     <input type="submit" name="remove" value="カートを空にする" class="util-link">
-    <input type="submit" name="confirm" value="購入確認画面へ進む" class="util-link">
+    <input type="submit" name="confirm" value="購入確認画面へ進む" class="util-link" >
   </form>
 </div>
-{% include 'footer.html.twig' %}
     <script>
     new WOW().init();
     </script>  
-
+{% include 'footer.html.twig' %}
 </body>
 </html>

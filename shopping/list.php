@@ -12,14 +12,19 @@ use shopping\lib\Item;
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-$db_host = $_ENV['DB_HOST'];
-$db_name = $_ENV['DB_NAME'];
-$db_user = $_ENV['DB_USER'];
-$db_pass = $_ENV['DB_PASS'];
-$db_type = $_ENV['DB_TYPE'];
+$DB_HOST = $_ENV["DB_HOST"];
+$DB_DATABASE = $_ENV["DB_DATABASE"];
+$DB_USERNAME = $_ENV["DB_USERNAME"];
+$DB_PASSWORD = $_ENV["DB_PASSWORD"];
+$db_type = $_ENV["DB_TYPE"];
 
-
-$db = new PDODatabase($db_host,$db_user,$db_pass,$db_name,$db_type);
+$db = new PDODatabase(
+    $DB_HOST,
+    $DB_USERNAME,
+    $DB_PASSWORD,
+    $DB_DATABASE,
+    $db_type
+);
 $ses = new Session($db);
 $itm = new Item($db);
 
@@ -46,6 +51,7 @@ $ses->checkSession();
 $ctg_id = (isset($_GET[('ctg_id')]) === true && preg_match('/^[0-9]+$/' , $_GET['ctg_id'])===1) ? $_GET['ctg_id'] : '';
 //カテゴリーリスト（一覧）を取得する
 $cateArr = $itm->getCategoryList();
+$_SESSION['cateArr'] = $cateArr;
 //商品リストを取得する
 $dataArr = $itm->getItemList($ctg_id);
 $context = [];

@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- reset css -->
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+<!-- drawer.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+<!-- jquery & iScroll -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+<!-- drawer.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
   <title>退会完了</title>
 </head>
-<body>
+<body class="drawer drawer--right">
+{% include 'header.html.twig' %}
   <div>退会が完了しました<br>ご利用いただき誠にありがとうございました。</div>
     <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}list.php">トップページへ</a>
+    {% include 'footer.html.twig' %}
 </body>
 </html>

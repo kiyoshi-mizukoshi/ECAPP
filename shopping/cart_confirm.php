@@ -12,13 +12,19 @@ use shopping\lib\Cart;
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-$db_host = $_ENV['DB_HOST'];
-$db_name = $_ENV['DB_NAME'];
-$db_user = $_ENV['DB_USER'];
-$db_pass = $_ENV['DB_PASS'];
-$db_type = $_ENV['DB_TYPE'];
+$DB_HOST = $_ENV["DB_HOST"];
+$DB_DATABASE = $_ENV["DB_DATABASE"];
+$DB_USERNAME = $_ENV["DB_USERNAME"];
+$DB_PASSWORD = $_ENV["DB_PASSWORD"];
+$db_type = $_ENV["DB_TYPE"];
 
-$db = new PDODatabase($db_host,$db_user,$db_pass,$db_name,$db_type);
+$db = new PDODatabase(
+    $DB_HOST,
+    $DB_USERNAME,
+    $DB_PASSWORD,
+    $DB_DATABASE,
+    $db_type
+);
 $ses = new Session($db);
 $cart = new Cart($db);
 
@@ -35,6 +41,17 @@ if(isset($_SESSION['id'])=='')
 
 }
 $customer_no = $_SESSION['id'];
+if (isset($_SESSION['id'])) {//ログインしているとき
+  $name =  $_SESSION['name'] . 'さん';
+  $link = '<a href="logout.php" class="header-nav-item-link">ログアウト</a>';
+  $regist = '';
+  $gest = '';
+} else {//ログインしていない時
+  $name = '<a class="header-nav-item-link" href="login_form.php">Login</a>';
+  $link = '<a class="header-nav-item-link" href="login_form.php">ログイン</a>';
+  $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
+  $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
+}
 
 
 $sumNum = $_SESSION['sumnum'];
@@ -50,15 +67,19 @@ if(!empty($_POST['buy']))
   $buy = $cart->buyCart($value);//商品を購入する
   $res = $cart->AllDelCartData($customer_no);//カートを削除する
   header('Location: ' . Bootstrap::ENTRY_URL. 'cart_complete.php');
-
 }
-
 }
 
 $context = [];
 $context['sumNum'] = $sumNum;
 $context['sumPrice'] = $sumPrice;
 $context['dataArr'] = $dataArr;
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
+
 $template = $twig->loadTemplate('cart_confirm.html.twig');
 $template->display($context);
 

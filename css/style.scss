@@ -47,6 +47,7 @@ body {
   color: $font_color;
   font-family: 游明朝, YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", HG明朝E, "ＭＳ Ｐ明朝", serif;
   line-height: 1.6875;
+  height: 100%;
 }
 
 img {
@@ -120,7 +121,11 @@ img {
   &.-active {
     background-color: $primary-color;
     color: #fff;
-
+  }
+  &.-confirm {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
   }
   @include mq(md) {
     &:not(.-submit){
@@ -132,6 +137,8 @@ img {
     }
   }
 }
+
+
 /**********************************************
   # header
 ***************************************************/
@@ -403,6 +410,8 @@ margin-top: 10px;
   background-color: #f7f7f7;
   padding: 42px 40px 12px;
   margin-top: 80px;
+  bottom: 0;
+  width: 100%;
   @include mq(sm)
   {
     padding: 30px 0 14px;
@@ -705,5 +714,72 @@ margin-top: 4px;
   .util-link {
     margin-left: 20px;
     
+  }
+}
+
+/**********************************************
+  # complete
+***************************************************/
+.complete {
+  margin-top: 200px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.util-wrap {
+  text-align: center;
+  margin-top: 50px;
+
+  .util-link {
+    @include mq(sm)
+    {
+      margin-top: 20px;
+    }
+  
+  }
+}
+
+/**********************************************
+  # mypage
+***************************************************/
+.mypage-wrap {
+  text-align: center;
+}
+.mypage{
+  padding-top: 70px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 980px;
+  margin: 40px auto 0;
+  
+  tr{
+    border: solid 1px #898989;
+  }
+  th{
+    width: 30%;
+    padding: 16px;
+    background-color: $primary_color;
+    color: #fff;
+    border-right: solid 1px #898989;
+    @include mq(sm){
+      width: 100%;
+      display: block;
+    }
+
+
+  }
+  td{
+    width: 70%;
+    padding: 12px;
+    font-size: 18px;
+    @include mq(sm){
+      width: 100%;
+      display: block;
+    }
+
   }
 }
