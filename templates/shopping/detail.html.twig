@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- reset css -->
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+<!-- drawer.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+<!-- jquery & iScroll -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+<!-- drawer.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+<!-- wow -->
+<script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/wow.min.js"></script>
+<link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/animate.css">
+<link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/swiper.min.css">
+<script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/swiper.min.js"></script>
+
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
+  <title>list</title>
+</head>
+<body class="drawer drawer--right">
+{% include 'header.html.twig' %}
+  <input type="hidden" name="entry_url" value="{{constant('shopping\\Bootstrap::ENTRY_URL')}}" id="entry_url">
+<div class="detail inner wow fadeInUp section">
+  <h2 class="util-title">detail</h2>
+  <div class="detail-image">
+    <img src="{{constant('shopping\\Bootstrap::ENTRY_URL')}}images/{{itemData.image}}" alt="{{itemData.item_name}}">
+  </div>
+  <dl>
+    <dd class="detail-title">{{itemData.item_name}}</dd>
+    <dd class="detail-text">{{itemData.detail}}</dd>
+    <dd class="detail-cost">&yen;{{itemData.price|number_format(0, '.' , ',')}}</dd>
+    <input type="hidden" name="item_id" id="item_id" value="{{itemData.item_id}}">
+  </dl>
+  <div class="detail-form-wrap">
+    <form action="" method="POST">
+        <input type="button" name="cart_in" value="ショッピングカートへ入れる" id="cart_in" class="util-link">
+      {{msg|raw}}
+    </form>
+  </div>
+</div>
+{% include 'footer.html.twig' %}
+
+  <script>
+  new WOW().init();
+  </script> 
+</body>
+</html>

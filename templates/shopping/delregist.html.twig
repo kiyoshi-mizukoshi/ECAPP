@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- reset css -->
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+<!-- drawer.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css">
+<!-- jquery & iScroll -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+<!-- drawer.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
+
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
+  <title>確認ページ</title>
+</head>
+<body class="drawer drawer--right">
+{% include 'header.html.twig' %}
+  <h2>退会画面</h2>    
+
+<form action="" method="post">
+  <div>本当に退会しますか？<br>退会する場合は退会ボタンを押してください</div>
+  <input type="submit" value="退会する" name="remove">
+</form>
+<a href="mypage.php">戻る</a>
+{% include 'footer.html.twig' %}
+</body>
+</html>
