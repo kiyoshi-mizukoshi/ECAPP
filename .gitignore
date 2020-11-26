@@ -1,3 +1,4 @@
-/templates_c/
-/logs/
-/vendor/
+.env
+templates_c/
+logs/
+vendor/
