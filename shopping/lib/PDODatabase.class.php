@@ -247,7 +247,7 @@ class PDODatabase
     }
     $logPath = $logDir . '/shopping.log';
     if(!file_exists($logPath)){
-      touch($logPath);
+      touch($logPath, 777);
     }
     return $logPath;
   }
