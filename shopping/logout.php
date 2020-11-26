@@ -6,8 +6,10 @@ require_once dirname(__FILE__) . '/Bootstrap.class.php';
 use shopping\Bootstrap;
 use shopping\lib\Session;
 use shopping\lib\PDODatabase;
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+    $dotenv->load();
+}
 
 $DB_HOST = $_ENV["DB_HOST"];
 $DB_DATABASE = $_ENV["DB_DATABASE"];
