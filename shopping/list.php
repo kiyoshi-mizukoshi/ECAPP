@@ -9,8 +9,10 @@ use shopping\lib\PDODatabase;
 use shopping\lib\Session;
 use shopping\lib\Item;
 
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+    $dotenv->load();
+}
 
 $DB_HOST = $_ENV["DB_HOST"];
 $DB_DATABASE = $_ENV["DB_DATABASE"];
