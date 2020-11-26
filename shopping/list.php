@@ -9,7 +9,7 @@ use shopping\lib\PDODatabase;
 use shopping\lib\Session;
 use shopping\lib\Item;
 
-if (file_exists(__DIR__ . '/.env')) {
+if (file_exists(__DIR__ . '/../.env')) {
     $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
     $dotenv->load();
 }

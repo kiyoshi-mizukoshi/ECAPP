@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/Bootstrap.class.php';
 use shopping\Bootstrap;
 use shopping\lib\Session;
 use shopping\lib\PDODatabase;
-if (file_exists(__DIR__ . '/.env')) {
+if (file_exists(__DIR__ . '/../.env')) {
   $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
   $dotenv->load();
 }
