@@ -16,7 +16,7 @@ $DB_HOST = $_ENV["DB_HOST"];
 $DB_DATABASE = $_ENV["DB_DATABASE"];
 $DB_USERNAME = $_ENV["DB_USERNAME"];
 $DB_PASSWORD = $_ENV["DB_PASSWORD"];
-$db_type = $_ENV["DB_TYPE"];
+$db_type = 'mysql';
 $db = new PDODatabase(
     $DB_HOST,
     $DB_USERNAME,
