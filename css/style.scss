@@ -48,6 +48,7 @@ body {
   font-family: 游明朝, YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", HG明朝E, "ＭＳ Ｐ明朝", serif;
   line-height: 1.6875;
   height: 100%;
+  
 }
 
 img {
@@ -64,6 +65,11 @@ img {
   {
     padding: 0 15px;
   }
+}
+
+button {
+  a{color: $primary_color;}
+
 }
 
 .main {
@@ -110,6 +116,7 @@ img {
 
 .util-link {
   font-size: 14px;
+  margin-bottom: 10px;
   letter-spacing: .1em;
   color: $primary_color;
   border: solid 1px $primary_color;
@@ -117,6 +124,7 @@ img {
   display: inline-block;
   padding: 10px 54px;
   transition: background-color .4s, color .4s;
+  
 
   &.-active {
     background-color: $primary-color;
@@ -713,6 +721,11 @@ margin-top: 4px;
   margin-top: 30px;
   .util-link {
     margin-left: 20px;
+
+    @include mq(sm)
+    {
+      margin-top: 8px;
+    }
     
   }
 }
@@ -721,10 +734,14 @@ margin-top: 4px;
   # complete
 ***************************************************/
 .complete {
-  margin-top: 200px;
+  margin-top: 280px;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
+  @include mq(sm)
+  {
+    margin-top: 180px;
+  }
 }
 
 .util-wrap {
@@ -768,9 +785,8 @@ margin-top: 4px;
     @include mq(sm){
       width: 100%;
       display: block;
+      padding: 8px;
     }
-
-
   }
   td{
     width: 70%;
@@ -779,7 +795,548 @@ margin-top: 4px;
     @include mq(sm){
       width: 100%;
       display: block;
+      padding: 6px;
     }
 
   }
 }
+
+.link-table {
+  width: 100%;
+  max-width: 768px;
+  margin: 40px auto 0;
+    .util-link{
+      padding: 10px 40px;
+      @include mq(sm)
+      {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+    }
+    td{
+      @include mq(sm)
+      {
+        width: 100%;
+        display: block;
+      }
+  
+    }
+}
+
+/**********************************************
+  # favorite
+***************************************************/
+
+.list-back{
+  
+  background-color: #ccc;
+  border: none;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #6c6c6c;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  margin: 0 20px 0 0;
+  outline: 0;
+  padding: 16px 12px;
+  text-align: center;
+  width: 100%;
+  >a{
+    margin-top: 40px;
+    color: #6c6c6c;
+    font-size: 14px;
+  }
+  &:hover {
+    transition: .4s;
+    opacity: 0.7;
+  }
+
+}
+
+.non {
+  margin-top: 40px;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+.list-back-wrap {
+  background-color: #fff;
+    border: #dbdbdb solid 3px;
+    border-radius: 3px;
+    margin: 20px 0 0;
+    padding: 20px;
+
+    @include mq(sm)
+    {
+      padding: 10px;
+    }
+}
+
+
+.favorite-item {
+  border-bottom: solid 3px #dbdbdb;
+  
+}
+
+.favorite-item-wrap {
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.favorite-item-header {
+  flex: 0 0 240px;
+
+  @include mq(sm) 
+  {
+    flex:0 0 120px;
+  }
+}
+
+.favorite-item-body {
+  flex: 0 1 100%;
+text-align: center;
+}
+
+.favorite-item-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 4px;
+
+  @include mq(sm)
+  {
+    font-size: 12px;
+  }
+
+}
+
+.favorite-item-cost {
+  font-size: 14px;
+  color: #989898;
+  margin-top: 8px;
+  @include mq(sm)
+  {
+    font-size: 8px;
+    margin-top: 4px;
+  }
+
+}
+
+.favorite-item-link {
+font-size: 16px;
+margin-top: 4px;
+
+a{
+  @include mq(sm)
+{
+  font-size: 8px;
+  margin-top: 4px;
+  padding: 4px;
+}
+
+}
+
+@include mq(sm)
+{
+  font-size: 8px;
+  margin-top: 0;
+}
+
+}
+
+.favorite-item-picture {
+  a{
+    &:hover {
+      transition: .4s;
+      opacity: 0.7;
+    }
+  }
+}
+
+/**********************************************
+  # logout delregist
+***************************************************/
+.logout {
+  font-size: 18px;
+  margin-top: 200px;
+  text-align: center;
+}
+.util-link-wrap{
+  text-align: center;
+  margin-top: 40px;
+}
+
+.delmessage {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/**********************************************
+  # password
+***************************************************/
+
+.password {
+  margin-top: 40px;
+
+  input[type="password"]{
+    width: 100%;
+    font-size: 30px;
+    padding: .2em .5em;
+    border: 0;
+    box-shadow: 5px 6px 16px rgba(96, 96, 96, 0.16);
+    border-radius: 2px;
+    height: 40px;
+    background-color:  #dcdcdc;
+    
+  
+  }
+}
+
+.change-pass-list {
+  max-width: 540px;
+  margin: 100px auto 40px;
+  @include mq(sm){
+    max-width: 420px;
+  }
+}
+.wrap{
+
+    margin-top: 50px;
+    text-align: center;
+  
+}
+
+.password-item {
+  @include mq(md){
+    display: flex;
+
+  }
+  margin-top: 30px;
+}
+
+.change-pass-item-input {
+  flex: 0 0 300px;
+}
+
+.change-pass-item-title {
+  @include mq(md){
+    flex: 0 1 100%;
+
+  }
+}
+
+
+
+.password-footer{
+  text-align: center;
+}
+
+.err {
+  margin-top: 20px;
+  text-align: center;
+  color: red;
+  font-size: 14px;
+}
+
+.confirm-message {
+  margin-top: 280px;
+  font-size: 18px;
+  text-align: center;
+
+}
+
+/**********************************************
+  # login
+***************************************************/
+.login {
+  margin-top: 40px;
+
+  input[type="email"],input[type="password"]{
+    width: 100%;
+    font-size: 30px;
+    padding: .2em .5em;
+    border: 0;
+    box-shadow: 5px 6px 16px rgba(96, 96, 96, 0.16);
+    border-radius: 2px;
+    height: 40px;
+    background-color: #dcdcdc;
+    letter-spacing: .2em;
+  }
+  input[type="email"]{
+    font-size: 14px;
+  }
+
+}
+
+.login-list {
+  max-width: 540px;
+  margin: 100px auto 40px;
+  @include mq(sm){
+    max-width: 420px;
+  }
+}
+
+.login-item {
+  @include mq(md){
+    display: flex;
+
+  }
+  margin-top: 30px;
+}
+
+.login-item-input {
+  flex: 0 0 300px;
+}
+
+.login-item-title {
+  @include mq(md){
+    flex: 0 1 100%;
+
+  }
+}
+
+
+
+.login-footer{
+  text-align: center;
+  .util-link{
+    &:last-child {
+      margin-top: 18px;
+    }
+  }
+}
+
+
+.login-text {
+  margin-top: 200px;
+  font-size: 18px;
+  text-align: center;
+  @include mq(sm)
+  {
+    margin-top: 100px;
+  }
+
+}
+
+.regist-link{
+  text-decoration: underline;
+  font-size: 18px;
+  margin-left: 100px;
+  color: $primary_color;
+  @include mq(sm)
+  {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+}
+/**********************************************
+  # search
+***************************************************/
+.search-text{
+  text-align: center;
+  font-size: 18px;
+  margin-top: 100px;
+}
+
+/**********************************************
+  # regist
+***************************************************/
+.regist {
+  margin-top: 40px;
+  input[type="text"],input[type="email"],input[type="button"],input[type="password"]{
+    padding: .2em .5em;
+    border: 0;
+    box-shadow: 5px 6px 16px rgba(96, 96, 96, 0.16);
+    border-radius: 2px;
+    height: 40px;
+    background-color: #dcdcdc;
+    letter-spacing: .2em;
+    &:first-child{
+      margin-bottom: 8px;
+    }
+  }
+  input[type="button"]
+  {
+    margin-left: 10px;
+    background-color: #898989;
+  }
+
+  
+
+  select {
+    padding: .2em .5em;
+    border: 0;
+    box-shadow: 5px 6px 16px rgba(96, 96, 96, 0.16);
+    border-radius: 2px;
+    height: 40px;
+    background-color: #dcdcdc;
+    letter-spacing: .2em;
+
+  }
+
+  table {
+    max-width: 800px;
+    width: 100%;
+    margin: 100px auto 40px;
+    @include mq(sm){
+      max-width: 420px;
+    }
+    th{
+      text-align:right;
+    }
+    td{
+      padding-left: 40px;
+    }
+  }
+  
+  }
+
+
+.regist-list {
+  max-width: 540px;
+  margin: 100px auto 40px;
+  @include mq(sm){
+    max-width: 420px;
+  }
+}
+
+.regist-item {
+  @include mq(md){
+  display: flex;
+  }
+  margin-top: 18px;
+}
+
+.regist-item-input {
+  flex: 0 0 400px;
+}
+
+.regist-item-title {
+  @include mq(md){
+    flex: 0 1 100%;
+
+  }
+}
+
+
+
+.regist-footer{
+  text-align: center;
+  .util-link{
+    
+      margin-top: 18px;
+    }
+}
+
+
+/**********************************************
+  # contact
+***************************************************/
+
+.contact {
+  margin-top: 40px;
+
+  table {
+    max-width: 800px;
+    width: 100%;
+    margin: 100px auto 40px;
+    @include mq(sm){
+      max-width: 420px;
+    }
+    th{
+      text-align:right;
+      @include mq(sm)
+      {
+        font-size: 12px;
+      }
+    }
+    td{
+      padding-left: 40px;
+      @include mq(sm)
+      {
+        font-size: 12px;
+      }
+
+    }
+  }
+
+
+  input[type="text"]{
+    width: 100%;
+    padding: .2em .5em;
+    border: 0;
+    box-shadow: 5px 6px 16px rgba(96, 96, 96, 0.16);
+    border-radius: 2px;
+    height: 40px;
+    background-color:  #dcdcdc;
+    
+  
+  }
+  textarea{
+    width: 100%;
+    padding: .2em .5em;
+    border: 0;
+    box-shadow: 5px 6px 16px rgba(96, 96, 96, 0.16);
+    border-radius: 2px;
+    background-color:  #dcdcdc;
+    min-height: 140px;
+    resize: vertical;
+
+  }
+}
+
+.contact-list {
+  max-width: 540px;
+  margin: 100px auto 40px;
+  @include mq(sm){
+    max-width: 420px;
+  }
+}
+.wrap{
+
+    margin-top: 50px;
+    text-align: center;
+  
+}
+
+.contact-item {
+  @include mq(md){
+    display: flex;
+
+  }
+  margin-top: 30px;
+}
+
+.contact-item-input {
+  flex: 0 0 300px;
+}
+
+.contact-item-title {
+  @include mq(md){
+    flex: 0 1 100%;
+
+  }
+}
+
+
+
+.contact-footer{
+  text-align: center;
+}
+
+.message{
+  text-align: center;
+  margin-top: 10px;
+  @include mq(sm)
+  {
+    font-size: 12px;
+  }
+}
+
+

@@ -21,10 +21,11 @@
   <title>会員登録完了</title>
 </head>
 <body class="drawer drawer--right">
-{% include 'header.html.twig' %}
-  <div>会員登録が完了しました</div>
-    <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}login_form.php">今すぐログイン</a>
-    <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}list.php">トップページへ</a>
-{% include 'footer.html.twig' %}
+    <p class="complete">会員登録が完了しました</p>
+  <div class="util-wrap">
+    <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}login_form.php" class="util-link">今すぐログイン</a>
+    <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}list.php" class="util-link">トップページへ</a>
+  </div>
+
 </body>
 </html>

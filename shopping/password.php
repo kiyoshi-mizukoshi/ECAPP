@@ -45,8 +45,8 @@ if (isset($_SESSION['id'])) {//ログインしているとき
 
 $msg='';
 if(!empty($_POST))
-if(strlen($_POST['password1'])<8){
-$msg='パスワードは8文字以上で入力してください';
+if(strlen($_POST['password1'])<8 || strlen($_POST['password1'])>16){
+$msg='パスワードは8文字以上16文字以内で入力してください';
 }elseif($_POST['password1']!==$_POST['password2']){
 $msg='パスワードが確認用と一致しません';
 }
@@ -58,6 +58,11 @@ else
 }
 $context = [];
 $context['msg']=$msg;
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('password.html.twig');
 $template->display($context);
 

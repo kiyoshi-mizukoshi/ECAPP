@@ -22,7 +22,8 @@
 </head>
 <body class="drawer drawer--right">
 {% include 'header.html.twig' %}
-<h2>会員情報変更確認</h2>
+<div class="regist inner">
+<h2 class="util-title">会員情報変更確認</h2>
   <form action="" method="post">
     <table>
       <tr>
@@ -57,11 +58,13 @@
       </tr>
 
     </table>
-    <div>
-      <a href="update.php?action=rewrite">修正する</a>
-      <input type="submit" name="complete" value="変更する">
+          <div class="util-link-wrap">
+      <a href="update.php?action=rewrite" class="util-link">修正する</a>
+      <input type="submit" name="complete" value="変更する" class="util-link">
     </div>
+
   </form>
+  </div>
   {% include 'footer.html.twig' %}
 </body>
 </html>

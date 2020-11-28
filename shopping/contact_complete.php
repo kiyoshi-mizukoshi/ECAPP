@@ -35,6 +35,18 @@ $to = $_SESSION['join']['mail'];
 $title = $_SESSION['join']['name'];
 $message = $_SESSION['join']['inquiry'];
 $headers = "From: $header ";
+if (isset($_SESSION['id'])) {//ログインしているとき
+  $name =  $_SESSION['name'] . 'さん';
+  $link = '<a href="logout.php" class="header-nav-item-link">ログアウト</a>';
+  $regist = '';
+  $gest = '';
+} else {//ログインしていない時
+  $name = '<a class="header-nav-item-link" href="login_form.php">Login</a>';
+  $link = '<a class="header-nav-item-link" href="login_form.php">ログイン</a>';
+  $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
+  $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
+}
+
 
   if(mb_send_mail($to, $title, $message,$headers))
   {
@@ -52,6 +64,11 @@ $headers = "From: $header ";
   }
   $context=[];
   $context['msg'] = $msg;
+  $context['name'] = $name;
+  $context['gest'] = $gest;
+  $context['link'] = $link;
+  $context['regist'] = $regist;
+  $context['cateArr'] = $_SESSION['cateArr'];
   $context['sentence'] = $sentence;
   $template = $twig->loadTemplate('contact_complete.html.twig');
   $template->display($context);

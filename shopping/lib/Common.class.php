@@ -130,8 +130,8 @@ class Common
 
   private function passCheck()
   {
-    if(strlen($this->dataArr['password'])<8){
-      $this->errArr['password'] = 'パスワードは半角英数字8桁以上で入力してください';
+    if(strlen($this->dataArr['password'])<8 ||strlen($this->dataArr['password'])>16){
+      $this->errArr['password'] = 'パスワードは半角英数字8桁以上16文字未満で入力してください';
     }
   }
 

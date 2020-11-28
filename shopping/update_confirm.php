@@ -64,6 +64,11 @@ if(!empty($_POST['complete'])){
 
 $context = [];
 $context['dataArr'] = $dataArr;
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('update_confirm.html.twig');
 $template->display($context); 
 

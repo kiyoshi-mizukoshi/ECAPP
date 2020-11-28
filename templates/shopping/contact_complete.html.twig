@@ -22,11 +22,12 @@
 </head>
 <body class="drawer drawer--right">
 {% include 'header.html.twig' %}
-  <h2>{{msg}}</h2>    
-<p class="message">
-{{sentence | raw}}
-</p>
-<a href="list.php">トップへ</a>
+    <p class="complete">{{msg}}</p>
+    <p class="message">{{sentence | raw}}</p>
+  <div class="util-wrap">
+    <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}list.php" class="util-link">トップページへ</a>
+  </div>
+
 {% include 'footer.html.twig' %}
 </body>
 </html>

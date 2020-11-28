@@ -20,10 +20,8 @@
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
   <title>ログイン</title>
 </head>
-<body class="drawer drawer--right">
-{% include 'header.html.twig' %}
-  <p>{{msg}}</p>
-      {{link | raw}}
-      {% include 'footer.html.twig' %}
+<body>
+  <p class="login-text">{{msg}}</p>
+      <div class="util-link-wrap">{{link | raw}}</div>
 </body>
 </html>

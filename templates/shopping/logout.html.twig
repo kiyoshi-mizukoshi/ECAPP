@@ -18,13 +18,12 @@
 
   <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
-  <title>ログイン</title>
+  <title>ログアウト</title>
 </head>
-<body class="drawer drawer--right">
-{% include 'header.html.twig' %}
-  <p>ログアウトしました。</p>
-<a href="login_form.php">ログインへ</a>
-<a href="list.php">トップへ</a>
-{% include 'footer.html.twig' %}
+<body>
+  <p class="logout">ログアウトしました。</p>
+  <div class="util-link-wrap">
+    <a href="list.php" class="util-link link">トップへ</a>
+  </div>
 </body>
 </html>

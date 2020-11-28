@@ -36,8 +36,24 @@ if(!empty($_POST))
   header('Location: ' . Bootstrap::ENTRY_URL. 'contact_confirm.php');
 
 }
-$context = [];
+if (isset($_SESSION['id'])) {//ログインしているとき
+  $name =  $_SESSION['name'] . 'さん';
+  $link = '<a href="logout.php" class="header-nav-item-link">ログアウト</a>';
+  $regist = '';
+  $gest = '';
+} else {//ログインしていない時
+  $name = '<a class="header-nav-item-link" href="login_form.php">Login</a>';
+  $link = '<a class="header-nav-item-link" href="login_form.php">ログイン</a>';
+  $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
+  $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
+}
 
+$context = [];
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('contact.html.twig');
 $template->display($context);
 
