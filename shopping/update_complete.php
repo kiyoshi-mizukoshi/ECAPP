@@ -50,8 +50,6 @@ $context['link'] = $link;
 $context['regist'] = $regist;
 $context['cateArr'] = $_SESSION['cateArr'];
 
-
-
 $template = $twig->loadTemplate('update_complete.html.twig');
 $template->display($context);
 

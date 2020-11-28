@@ -41,8 +41,6 @@ if(!empty($gestLogin))
   header('Location: ' . Bootstrap::ENTRY_URL. 'list.php');
 }
 
-
-
 $context = [];
 $template = $twig->loadTemplate('list.html.twig');
 $template->display($context); 

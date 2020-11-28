@@ -22,28 +22,27 @@
 </head>
 <body class="drawer drawer--right">
 {% include 'header.html.twig' %}
-    <div class="login inner">
-  <div class="login-wrap">
-<h2 class="login-text">ログインしてください</h2>
-  <form action="login.php" method="post">
-    <dl class="login-list">
-      <div class="login-item">
-        <dt class="login-item-title">メールアドレス</dt>
-        <dd class="login-item-input"><input type="email" name="email" size="40" value="{{dataArr.email}}" required><br></dd>
+  <div class="login inner">
+    <div class="login-wrap">
+      <h2 class="login-text">ログインしてください</h2>
+      <form action="login.php" method="post">
+        <dl class="login-list">
+          <div class="login-item">
+            <dt class="login-item-title">メールアドレス</dt>
+            <dd class="login-item-input"><input type="email" name="email" size="40" value="{{dataArr.email}}" required><br></dd>
+          </div>
+          <div class="login-item">
+            <dt class="login-item-title">パスワード</dt>
+            <dd class="login-item-input"><input type="password" name="password" value="{{dataArr.password}}" size="16"></dd>
+          </div>
+        </dl>
+        <div class="login-footer">
+          <input type="submit" value="ログイン" class="util-link">
+          <a href="gestlogin.php" class="util-link">ゲストログイン</a>
         </div>
-        <div class="login-item">
-        <dt class="login-item-title">パスワード</dt>
-        <dd class="login-item-input"><input type="password" name="password" value="{{dataArr.password}}" size="16"></dd>
-        </div>
-    </dl>
-    <div class="login-footer">
-      <input type="submit" value="ログイン" class="util-link">
-      <a href="gestlogin.php" class="util-link">ゲストログイン</a>
+          <a href="regist.php" class="regist-link">会員登録がまだの方はこちらから</a>
+      </form>
     </div>
-        <a href="regist.php" class="regist-link">会員登録がまだの方はこちらから</a>
-    </form>
-    </div>
-    </div>
-
+  </div>
 </body>
 </html>

@@ -50,8 +50,6 @@ $context['link'] = $link;
 $context['regist'] = $regist;
 $context['cateArr'] = $_SESSION['cateArr'];
 
-
-
 $template = $twig->loadTemplate('password_complete.html.twig');
 $template->display($context);
 

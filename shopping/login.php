@@ -50,15 +50,10 @@ $msg = 'メールアドレスもしくはパスワードが間違っています
 $link = '<a href="login_form.php" class="util-link">戻る</a>';
 }
 
-
-
-
-
 $context=[];
 $context['msg']=$msg;
 $context['link']=$link;
 $template = $twig->loadTemplate('login.html.twig');
 $template->display($context);
-
 
 ?>

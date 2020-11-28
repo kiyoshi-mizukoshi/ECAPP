@@ -36,7 +36,6 @@ $twig = new \Twig_Environment($loader, ['cache' =>Bootstrap::CACHE_DIR]);
 if(isset($_SESSION['id'])=='')
 {
   header('Location: ' . Bootstrap::ENTRY_URL. 'login_form.php');
-
 }
 $mem_id = $_SESSION['id'];
 if(!empty($_POST['remove'])){
@@ -44,11 +43,9 @@ if(!empty($_POST['remove'])){
   if($delregist===true)
 {
   header('Location: ' . Bootstrap::ENTRY_URL. 'delregist_complete.php');
-
 }
 
 }
-
 
 $context = [];
 $template = $twig->loadTemplate('delregist.html.twig');

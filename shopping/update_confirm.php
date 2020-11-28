@@ -50,8 +50,6 @@ if (isset($_SESSION['id'])) {//ログインしているとき
   $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
 }
 
-
-
 $dataArr=$_SESSION['confirm'];
 $id=$_SESSION['id'];
 if(!empty($_POST['complete'])){
@@ -59,8 +57,6 @@ if(!empty($_POST['complete'])){
   header('Location: ' . Bootstrap::ENTRY_URL. 'update_complete.php');
 
 }
-
-
 
 $context = [];
 $context['dataArr'] = $dataArr;
@@ -71,6 +67,5 @@ $context['regist'] = $regist;
 $context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('update_confirm.html.twig');
 $template->display($context); 
-
 
 ?>

@@ -23,28 +23,26 @@
 <body class="drawer drawer--right">
 {% include 'header.html.twig' %}
 <div class="contact inner">
-
   <h2 class="util-title">内容確認</h2>    
-
-<form action="" method="post">
-<table border="1">
-<tr>
-<td>名前</td>
-<td>{{dataArr.name}}</td>
-</tr>
-<tr>
-<td>メールアドレス</td>
-<td>{{dataArr.mail}}</td>
-</tr>
-<tr>
-<td>問い合わせ内容</td>
-<td>{{dataArr.inquiry}}</td>
-</tr>
-</table>
-<div class="util-link-wrap">
-<input type="submit" value="送信" name="complete" class="util-link">
-</div>
-</form>
+  <form action="" method="post">
+    <table border="1">
+    <tr>
+      <td>名前</td>
+      <td>{{dataArr.name}}</td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td>{{dataArr.mail}}</td>
+    </tr>
+    <tr>
+      <td>問い合わせ内容</td>
+      <td>{{dataArr.inquiry}}</td>
+    </tr>
+    </table>
+    <div class="util-link-wrap">
+      <input type="submit" value="送信" name="complete" class="util-link">
+    </div>
+  </form>
 </div>
 {% include 'footer.html.twig' %}
 </body>
