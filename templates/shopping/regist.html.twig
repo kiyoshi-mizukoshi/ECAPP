@@ -21,10 +21,9 @@
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
   <title>会員登録</title>
 </head>
-<body class="drawer drawer--right">
-{% include 'header.html.twig' %}
+<body>
   <input type="hidden" name="entry_url" id="entry_url" value="{{constant('shopping\\Bootstrap::ENTRY_URL')}}">
-  <form action="confirm.php" method="post">
+  <!-- <form action="confirm.php" method="post">
     <table>
       <tr>
         <th>お名前（氏名）<span class="red">*</span></th>
@@ -112,7 +111,88 @@
     <div>
       <input type="submit" name="confirm" value="登録確認">
     </div>
-  </form>
-  {% include 'footer.html.twig' %}
+  </form> -->
+  <div class="regist inner">
+  <div class="regist-wrap">
+  <h2 class="util-title">新規会員登録</h2>
+  <form action="confirm.php" method="post">
+    <dl class="regist-list">
+      <div class="regist-item">
+        <dt class="regist-item-title">お名前(氏名)</dt>
+        <dd class="regist-item-input"><input type="text" name="family_name" value="{{dataArr.family_name}}" placeholder="例:田中" required>
+            <input type="text" name="first_name" value="{{dataArr.first_name}}"placeholder="例:太郎" required>
+            {% if errArr.family_name | length > 0 %}<br><span class="err">{{errArr.family_name}}</span>{% endif %}
+            {% if errArr.first_name | length > 0 %}<br><span class="err">{{errArr.first_name}}</span>{% endif %}</dd>
+        </div>
+        <div class="regist-item">
+        <dt class="regist-item-title">お名前(かな)</dt>
+        <dd class="regist-item-input"><input type="text" name="family_name_kana" value="{{dataArr.family_name_kana}}"placeholder="例:たなか">
+          <input type="text" name="first_name_kana" value="{{dataArr.first_name_kana}}"placeholder="例:たろう"></dd>
+        </div>
+        <div class="regist-item">
+          <dt class="regist-item-title">生年月日</dt>
+          <dd class="regist-item-input">            <select name="year">
+            {% for index, label in yearArr %}
+            <option value="{{index}}" {% if dataArr.year == index %} selected {% endif %}>{{label}}</option>
+            {% endfor %}
+          </select>
+          <select name='month'>
+            {% for index, label in monthArr %}
+            <option value="{{index}}"{% if dataArr.month == index %} selected {% endif %}>{{label}}</option>
+            {% endfor %}
+          </select>
+          <select name='day'>
+            {% for index, label in dayArr %}
+            <option value="{{index}}"{% if dataArr.day == index %} selected {% endif %}>{{label}}</option>
+            {% endfor %}
+          </select>
+          {% if errArr.year | length > 0 %}<br><span class="err">{{errArr.year}}</span>{% endif %}
+          {% if errArr.month | length > 0 %}<br><span class="err">{{errArr.month}}</span>{% endif %}
+          {% if errArr.day | length > 0 %}<br><span class="err">{{errArr.day}}</span>{% endif %}
+          </dd>
+          </div>
+          <div class="regist-item">
+            <dt class="regist-item-title">郵便番号</dt>
+
+            <dd class="regist-item-input"><input type="text" name="zip1" value="{{dataArr.zip1}}" id="zip1" size="3" maxlength="3" required> 
+              -
+              <input type="text" name="zip2" value="{{dataArr.zip2}}" id="zip2" size="4" maxlength="4" required>
+              <input type="button" name="address_search" value="〒から住所を入力" id="address_search">
+              {% if errArr.zip1 | length > 0 %}<br><span class="err">{{errArr.zip1}}</span>{% endif %}
+              {% if errArr.zip2 | length > 0 %}<br><span class="err">{{errArr.zip2}}</span>{% endif %}</dd>
+            </div>
+            <div class="regist-item">
+              <dt class="regist-item-title">住所</dt>
+              <dd class="regist-item-input"><input type="text" name="address" value="{{dataArr.address}}" id="address" size="40" required>
+                {% if errArr.address | length > 0 %}<br><span class="err">{{errArr.address}}</span>{% endif %}</dd>
+              </div>
+              <div class="regist-item">
+                <dt class="regist-item-title">メールアドレス</dt>
+                <dd class="regist-item-input"><input type="email" name="email" value="{{dataArr.email}}" size="40" required>
+                  {% if errArr.email | length > 0 %}<br><span class="err">{{errArr.email}}</span>{% endif %}</dd>
+                </div>
+                <div class="regist-item">
+                  <dt class="regist-item-title">電話番号</dt>
+                  <dd class="regist-item-input"><input type="text" name="tel1" value="{{dataArr.tel1}}" size="6" maxlength="6" required> -
+                    <input type="text" name="tel2" value="{{dataArr.tel2}}" size="6" maxlength="6" required> -
+                    <input type="text" name="tel3" value="{{dataArr.tel3}}" size="6" maxlength="6" required> 
+                    {% if errArr.tel1 | length > 0 %}<br><span class="err">{{errArr.tel1}}</span>{% endif %}
+                    {% if errArr.tel2 | length > 0 %}<br><span class="err">{{errArr.tel2}}</span>{% endif %}
+                    {% if errArr.tel3 | length > 0 %}<br><span class="err">{{errArr.tel3}}</span>{% endif %}</dd>
+                  </div>
+                  <div class="regist-item">
+                    <dt class="regist-item-title">パスワード</dt>
+                    <dd class="regist-item-input"><input type="password" name="password" value="{{dataArr.password}}" size="16"placeholder="8~16桁の英数字" required>
+                      {% if errArr.password | length > 0 %}<br><span class="err">{{errArr.password}}</span>{% endif %}</dd>
+                    </div>
+                </dl>
+              <div class="util-link-wrap">
+                <input type="submit" name="confirm" value="登録確認" class="util-link">
+              </div>
+              </form>
+              </div>
+              </div>
+
+
 </body>
 </html>

@@ -57,6 +57,11 @@ if(!empty($_POST))
 
 }
 $context = [];
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('password_confirm.html.twig');
 $template->display($context);
 

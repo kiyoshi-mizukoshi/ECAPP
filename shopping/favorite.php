@@ -42,6 +42,19 @@ if(isset($_SESSION['id'])=='')
   header('Location: ' . Bootstrap::ENTRY_URL. 'login_form.php');
 
 }
+
+if (isset($_SESSION['id'])) {//ログインしているとき
+  $name =  $_SESSION['name']. 'さん';
+  $link = '<a href="logout.php" class="header-nav-item-link">ログアウト</a>';
+  $regist = '';
+  $gest = '';
+} else {//ログインしていない時
+  $name = '<a class="header-nav-item-link" href="login_form.php">Login</a>';
+  $link = '<a class="header-nav-item-link" href="login_form.php">ログイン</a>';
+  $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
+  $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
+}
+
 $item_id = (isset($_GET['item_id']) === true && preg_match('/^\d+$/' , $_GET['item_id']) === 1) ? $_GET['item_id'] : '';
 $customer_no = $_SESSION['id'];
 
@@ -51,10 +64,14 @@ if($item_id !== '') {
 
 
 $dataArr = $favorite->getFavoriteData($customer_no);
-var_dump($dataArr);
 
 $context = [];
 $context['dataArr'] = $dataArr;
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('favorite.html.twig');
 $template->display($context);
 

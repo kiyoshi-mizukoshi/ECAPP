@@ -39,7 +39,4 @@ $(function(){
       }
     }
   });
-
-//formの入力確認
-  var submit = $(' #js-submit')
 });

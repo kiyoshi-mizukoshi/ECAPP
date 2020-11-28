@@ -51,10 +51,11 @@ if (isset($_SESSION['id'])) {//ログインしているとき
 }
 
 
-$regist = $mypage->getRegist();
-$_SESSION['regist'] = $regist;
+$register = $mypage->getRegist();
+$_SESSION['register'] = $register;
 $context = [];
 $context['regist'] = $regist;
+$context['register']=$register;
 $context['name'] = $name;
 $context['gest'] = $gest;
 $context['link'] = $link;

@@ -22,19 +22,31 @@
 </head>
 <body class="drawer drawer--right">
 {% include 'header.html.twig' %}
+  <div class="contact inner">
+  <div class="contact-wrap">
+<h2 class="util-title">Contact</h2>
   <form action="" method="post">
-    名前：<br>
-    <input type="text" name="name" size="50" value="" required><br>
-
-    メールアドレス：<br>
-    <input type="text" name="mail" size="50" value="" required><br>
-
-    問合せ内容：<br>
-    <textarea name="inquiry" cols="50" rows="5" required></textarea><br>
-
-    <br>
-    <input type="submit" value="内容確認">
+    <dl class="contact-list">
+      <div class="contact-item">
+        <dt class="contact-item-title"> 名前：</dt>
+        <dd class="contact-item-input"><input type="text" name="name" size="50" value="" required></dd>
+        </div>
+        <div class="contact-item">
+        <dt class="contact-item-title">メールアドレス：</dt>
+        <dd class="contact-item-input"><input type="text" name="mail" size="50" value="" required></dd>
+        </div>
+        <div class="contact-item">
+        <dt class="contact-item-title">問い合わせ内容：</dt>
+        <dd class="contact-item-input"><textarea name="inquiry" cols="50" rows="5" required></textarea></dd>
+        </div>
+    </dl>
+    <div class="contact-footer">
+      <input type="submit" value="内容確認" class="util-link">
+    </div>
   </form>
+</div>
+</div>
+
   {% include 'footer.html.twig' %}
 </body>
 </html>

@@ -53,7 +53,7 @@ if (isset($_SESSION['id'])) {//ログインしているとき
 }
 
 
-$regist = $_SESSION['regist'];
+$register = $_SESSION['register'];
 list($yearArr,$monthArr,$dayArr) = initMaster::getDate();
 $errArr = [
   'family_name' => '',
@@ -100,11 +100,17 @@ if(!empty($_GET)){
 
 
 $context = [];
-$context['regist'] = $regist;
+$context['register'] = $register;
 $context['yearArr'] = $yearArr;
 $context['monthArr'] = $monthArr;
 $context['dayArr'] = $dayArr;
 $context['errArr'] = $errArr;
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
+
 
 $template = $twig->loadTemplate('update.html.twig');
 $template->display($context); 

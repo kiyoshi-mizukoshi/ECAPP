@@ -43,11 +43,11 @@ if(!empty($res)){
   $msg = 'ログインしました。';
   $_SESSION['id'] = $res[0]['mem_id'];
     $_SESSION['name'] = $res[0]['family_name'].$res[0]['first_name'];
-  $link = '<a href="list.php">ホーム</a>';
+  $link = '<a href="list.php" class="util-link">ホーム</a>';
 }else {
 //登録失敗時は登録画面に戻る
 $msg = 'メールアドレスもしくはパスワードが間違っています。';
-$link = '<a href="login_form.php">戻る</a>';
+$link = '<a href="login_form.php" class="util-link">戻る</a>';
 }
 
 

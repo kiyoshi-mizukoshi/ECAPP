@@ -22,10 +22,11 @@
 </head>
 <body class="drawer drawer--right">
 {% include 'header.html.twig' %}
-  <h2>問合せ内容</h2>    
+<div class="contact inner">
+
+  <h2 class="util-title">内容確認</h2>    
 
 <form action="" method="post">
-
 <table border="1">
 <tr>
 <td>名前</td>
@@ -40,9 +41,11 @@
 <td>{{dataArr.inquiry}}</td>
 </tr>
 </table>
-
-<input type="submit" value="送信" name="complete">
+<div class="util-link-wrap">
+<input type="submit" value="送信" name="complete" class="util-link">
+</div>
 </form>
+</div>
 {% include 'footer.html.twig' %}
 </body>
 </html>

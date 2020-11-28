@@ -22,13 +22,18 @@
 </head>
 <body class="drawer drawer--right">
 {% include 'header.html.twig' %}
-  <h2>退会画面</h2>    
 
-<form action="" method="post">
-  <div>本当に退会しますか？<br>退会する場合は退会ボタンを押してください</div>
-  <input type="submit" value="退会する" name="remove">
+  <div class="section inner">
+  <h2 class="util-title ">退会画面</h2>    
+
+  <p class="delmessage">本当に退会しますか？<br>退会する場合は退会ボタンを押してください</p>
+
+<form action="" method="post" class="util-link-wrap">
+  <input type="submit" value="退会する" name="remove" class="util-link">
+    <a href="mypage.php" class="util-link">戻る</a>
+
 </form>
-<a href="mypage.php">戻る</a>
-{% include 'footer.html.twig' %}
+  </div>
+
 </body>
 </html>
