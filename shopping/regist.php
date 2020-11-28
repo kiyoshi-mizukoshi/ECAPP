@@ -37,8 +37,6 @@ foreach($dataArr as $key =>$value) {
 }
 
 list($yearArr,$monthArr,$dayArr) = initMaster::getDate();
-//list:右辺の配列の要素を、左辺の変数に代入することができる
-
 
 $context = [];
 $context['yearArr'] = $yearArr;
@@ -49,8 +47,5 @@ $context['errArr'] = $errArr;
 
 $template = $twig->loadTemplate('regist.html.twig');
 $template->display($context);
-
-
-
 
 ?>

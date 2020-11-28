@@ -73,7 +73,6 @@ $errArr = [
   
 ];
 
-
 if(!empty($_POST))
 {
   $_SESSION['join'] = $_POST;
@@ -97,8 +96,6 @@ if(!empty($_GET)){
   }
 }
 
-
-
 $context = [];
 $context['register'] = $register;
 $context['yearArr'] = $yearArr;
@@ -110,7 +107,6 @@ $context['gest'] = $gest;
 $context['link'] = $link;
 $context['regist'] = $regist;
 $context['cateArr'] = $_SESSION['cateArr'];
-
 
 $template = $twig->loadTemplate('update.html.twig');
 $template->display($context); 

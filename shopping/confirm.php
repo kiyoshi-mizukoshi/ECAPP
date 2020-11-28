@@ -111,10 +111,6 @@ switch ($mode) {
                 break;
 
 }
-
-
-
-
 list($yearArr,$monthArr,$dayArr) = initMaster::getDate();
 
 $context['yearArr'] = $yearArr;

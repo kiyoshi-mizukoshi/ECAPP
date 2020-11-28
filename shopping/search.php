@@ -50,14 +50,11 @@ if (isset($_SESSION['id'])) {//ログインしているとき
   $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
 }
 
-
-
 $context = [];
 $context['search'] = $search;
 $context['errmsg'] = $errmsg;
 $context['searchArr'] = $searchArr;
 $template = $twig->loadTemplate('search.html.twig');
 $template->display($context);
-
 
 ?>

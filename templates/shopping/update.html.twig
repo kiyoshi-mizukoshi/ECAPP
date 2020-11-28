@@ -62,36 +62,35 @@
           {% if errArr.month | length > 0 %}<br><span class="err">{{errArr.month}}</span>{% endif %}
           {% if errArr.day | length > 0 %}<br><span class="err">{{errArr.day}}</span>{% endif %}
           </dd>
-          </div>
-          <div class="regist-item">
-            <dt class="regist-item-title">郵便番号</dt>
-
-            <dd class="regist-item-input"><input type="text" name="zip1" value="{{register[0].zip1}}" id="zip1" size="3" maxlength="3" required> 
+        </div>
+        <div class="regist-item">
+          <dt class="regist-item-title">郵便番号</dt>
+          <dd class="regist-item-input"><input type="text" name="zip1" value="{{register[0].zip1}}" id="zip1" size="3" maxlength="3" required> 
               -
-              <input type="text" name="zip2" value="{{register[0].zip2}}" id="zip2" size="4" maxlength="4" required>
-              <input type="button" name="address_search" value="〒から住所を入力" id="address_search">
-              {% if errArr.zip1 | length > 0 %}<br><span class="err">{{errArr.zip1}}</span>{% endif %}
-              {% if errArr.zip2 | length > 0 %}<br><span class="err">{{errArr.zip2}}</span>{% endif %}</dd>
-            </div>
-            <div class="regist-item">
-              <dt class="regist-item-title">住所</dt>
-              <dd class="regist-item-input"><input type="text" name="address" value="{{register[0].address}}" id="address" size="40" required>
-                {% if errArr.address | length > 0 %}<br><span class="err">{{errArr.address}}</span>{% endif %}</dd>
-              </div>
-              <div class="regist-item">
-                <dt class="regist-item-title">メールアドレス</dt>
-                <dd class="regist-item-input"><input type="email" name="email" value="{{register[0].email}}" size="40" required>
-                  {% if errArr.email | length > 0 %}<br><span class="err">{{errArr.email}}</span>{% endif %}</dd>
-                </div>
-                <div class="regist-item">
-                  <dt class="regist-item-title">電話番号</dt>
-                  <dd class="regist-item-input"><input type="text" name="tel1" value="{{register[0].tel1}}" size="6" maxlength="6" required> -
-                    <input type="text" name="tel2" value="{{register[0].tel2}}" size="6" maxlength="6" required> -
-                    <input type="text" name="tel3" value="{{register[0].tel3}}" size="6" maxlength="6" required> 
-                    {% if errArr.tel1 | length > 0 %}<br><span class="err">{{errArr.tel1}}</span>{% endif %}
-                    {% if errArr.tel2 | length > 0 %}<br><span class="err">{{errArr.tel2}}</span>{% endif %}
-                    {% if errArr.tel3 | length > 0 %}<br><span class="err">{{errArr.tel3}}</span>{% endif %}</dd>
-                  </div>
+            <input type="text" name="zip2" value="{{register[0].zip2}}" id="zip2" size="4" maxlength="4" required>
+            <input type="button" name="address_search" value="〒から住所を入力" id="address_search">
+            {% if errArr.zip1 | length > 0 %}<br><span class="err">{{errArr.zip1}}</span>{% endif %}
+            {% if errArr.zip2 | length > 0 %}<br><span class="err">{{errArr.zip2}}</span>{% endif %}</dd>
+        </div>
+        <div class="regist-item">
+          <dt class="regist-item-title">住所</dt>
+          <dd class="regist-item-input"><input type="text" name="address" value="{{register[0].address}}" id="address" size="40" required>
+          {% if errArr.address | length > 0 %}<br><span class="err">{{errArr.address}}</span>{% endif %}</dd>
+        </div>
+        <div class="regist-item">
+          <dt class="regist-item-title">メールアドレス</dt>
+          <dd class="regist-item-input"><input type="email" name="email" value="{{register[0].email}}" size="40" required>
+          {% if errArr.email | length > 0 %}<br><span class="err">{{errArr.email}}</span>{% endif %}</dd>
+        </div>
+        <div class="regist-item">
+          <dt class="regist-item-title">電話番号</dt>
+          <dd class="regist-item-input"><input type="text" name="tel1" value="{{register[0].tel1}}" size="6" maxlength="6" required> -
+            <input type="text" name="tel2" value="{{register[0].tel2}}" size="6" maxlength="6" required> -
+            <input type="text" name="tel3" value="{{register[0].tel3}}" size="6" maxlength="6" required> 
+            {% if errArr.tel1 | length > 0 %}<br><span class="err">{{errArr.tel1}}</span>{% endif %}
+            {% if errArr.tel2 | length > 0 %}<br><span class="err">{{errArr.tel2}}</span>{% endif %}
+            {% if errArr.tel3 | length > 0 %}<br><span class="err">{{errArr.tel3}}</span>{% endif %}</dd>
+        </div>
     </dl>
     <div class="util-link-wrap">
       <input type="submit" name="confirm" value="確認画面へ" class="util-link">

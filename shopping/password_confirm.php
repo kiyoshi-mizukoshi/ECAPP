@@ -65,7 +65,4 @@ $context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('password_confirm.html.twig');
 $template->display($context);
 
-
-
-
 ?>

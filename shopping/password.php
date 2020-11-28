@@ -66,7 +66,4 @@ $context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('password.html.twig');
 $template->display($context);
 
-
-
-
 ?>

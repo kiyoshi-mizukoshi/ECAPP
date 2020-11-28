@@ -32,10 +32,8 @@ $ses = new Session($db);
 $_SESSION = [];//セッションの中身をすべて削除
 session_destroy();//セッションを破壊
 
-
-
-  $template = $twig->loadTemplate('delregist_complete.html.twig');
-  $template->display([]);
+$template = $twig->loadTemplate('delregist_complete.html.twig');
+$template->display([]);
 
 
 
