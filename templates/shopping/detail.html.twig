@@ -43,11 +43,23 @@
   </dl>
   <div class="detail-form-wrap">
     <form action="" method="POST">
-        <input type="button" name="cart_in" value="ショッピングカートへ入れる" id="cart_in" class="util-link">
-      {{msg|raw}}
+      数量:<select name="num" class="cart-num">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <input type="submit" name="cart_in" value="カートへ入れる" id="cart_in" class="cart-btn">
     </form>
   </div>
-</div>
+  <div class="util-link-wrap">
+  <form action="" method="POST">
+    {{msg|raw}}
+  </form>
+  </div>
+  </div>
+
 {% include 'footer.html.twig' %}
 
   <script>

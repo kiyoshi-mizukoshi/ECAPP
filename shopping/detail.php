@@ -9,6 +9,7 @@ use shopping\lib\PDODatabase;
 use shopping\lib\Session;
 use shopping\lib\Item;
 use shopping\lib\Favorite;
+use shopping\lib\Cart;
 
 if (file_exists(__DIR__ . '/../.env')) {
   $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
@@ -30,6 +31,7 @@ $db = new PDODatabase(
 );
 $ses = new Session($db);
 $itm = new Item($db);
+$cart = new Cart($db);
 $favorite = new Favorite($db);
 //テンプレート指定
 $loader = new \Twig_Loader_Filesystem(Bootstrap::TEMPLATE_DIR);
@@ -58,7 +60,7 @@ $msg='';
 // item_idを取得する
 $item_id = (isset($_GET['item_id']) === true && preg_match('/^\d+$/' , $_GET['item_id']) === 1) ? $_GET['item_id'] : '';
 $customer_no = (isset($_SESSION['id']) === true && preg_match('/^\d+$/' , $_SESSION['id']) === 1) ? $_SESSION['id'] : '';
-
+$num= (isset($_POST['num']) === true && preg_match('/^\d+$/' , $_POST['num']) === 1) ? $_POST['num'] : '';
 //item_idが取得できていない場合、商品一覧へ遷移させる
 if($item_id === '') {
   header('Location: ' . Bootstrap::ENTRY_URL. 'list.php');
@@ -99,6 +101,12 @@ if($count>0)
   $msg='<input type="submit" name="favorite" value=お気に入り解除 class="util-link -active" id="js-submit">';
 
 }
+}
+
+if($num !== '')
+{
+  $res = $cart->insCartData2($customer_no, $item_id,$num);
+  header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');
 }
 
 $context = [];

@@ -42,7 +42,7 @@
         </div>
         <div class="regist-item">
           <dt class="regist-item-title">生年月日</dt>
-          <dd class="regist-item-input">            <select name="year">
+          <dd class="regist-item-input"><select name="year">
             {% for index, label in yearArr %}
             <option value="{{index}}" {% if dataArr.year == index %} selected {% endif %}>{{label}}</option>
             {% endfor %}
