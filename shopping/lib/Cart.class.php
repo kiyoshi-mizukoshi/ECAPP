@@ -21,6 +21,17 @@ class Cart
     ];
     return $this->db->insert($table, $insData);
   }
+  public function insCartData2($customer_no, $item_id,$num)
+  {
+    $table = ' cart ';
+    $insData = [
+      'customer_no' => $customer_no,
+      'item_id' =>$item_id,
+      'num' =>$num
+    ];
+    return $this->db->insert($table, $insData);
+  }
+
 
   //カートの情報を取得する（必要な情報は、誰が$customer_no。必要な商品情報は名前、商品画像、金額)
   public function getCartData($customer_no)
@@ -46,6 +57,17 @@ class Cart
 
     return $this->db->select($table, $column, $where, $arrVal);
   }
+
+  public function updateCartData($customer_no,$item_id,$num)
+  {
+    $table = ' cart ';
+    $insData = ['num'=>$num];
+    $where = ' customer_no=? and item_id=? ';
+    $arrWhereVal = [$customer_no,$item_id];
+
+    return $this->db->update($table, $insData, $where, $arrWhereVal);
+  }
+
 
   //カート情報を削除する:必要な情報はどのカートを($crt_id)
   public function delCartData($crt_id)

@@ -56,22 +56,26 @@ if (isset($_SESSION['id'])) {//ログインしているとき
   $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
 }
 
-
 //item_idを取得する
 $item_id = (isset($_GET['item_id']) === true && preg_match('/^\d+$/' , $_GET['item_id']) === 1) ? $_GET['item_id'] : '';
 $crt_id = (isset($_GET['crt_id']) === true && preg_match('/^\d+$/' , $_GET['crt_id']) === 1) ? $_GET['crt_id'] : '';
-
+$num= (isset($_GET['num']) === true && preg_match('/^\d+$/' , $_GET['num']) === 1) ? $_GET['num'] : '';
 //item_idが設定されていれば、ショッピングカートに登録する
-if($item_id !== '') {
-  $res = $cart->insCartData($customer_no, $item_id);
-  header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');
+// if($item_id !== '') {
+//   $res = $cart->insCartData($customer_no, $item_id);
+//   header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');
 
-  //登録に失敗した場合、エラーページを表示する
-  if($res === false) {
-    echo "商品購入に失敗しました";
-    exit();
-  }
+//   //登録に失敗した場合、エラーページを表示する
+//   if($res === false) {
+//     echo "商品購入に失敗しました";
+//     exit();
+//   }
   
+// }
+if($item_id !== "" && $num !== '')
+{
+  $res= $cart->updateCartData($customer_no, $item_id, $num);
+
 }
 if(!empty($_POST['remove']))
 {  
