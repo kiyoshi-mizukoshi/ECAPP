@@ -37,7 +37,7 @@ if (file_exists(__DIR__ . '/../.env')) {
   
     const  CACHE_DIR = self::APP_DIR . 'templates_c/shopping/';
   
-    const APP_URL = '../';
+    const APP_URL = '';
   
     const ENTRY_URL = '';
   
