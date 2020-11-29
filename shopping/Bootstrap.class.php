@@ -37,9 +37,9 @@ if (file_exists(__DIR__ . '/../.env')) {
   
     const  CACHE_DIR = self::APP_DIR . 'templates_c/shopping/';
   
-    const APP_URL = 'http://localhost:8888/ECAPP/';
+    const APP_URL = '../';
   
-    const ENTRY_URL = self::APP_DIR;
+    const ENTRY_URL = '';
   
     public static function loadClass($class)
     {
