@@ -18,39 +18,33 @@
 
   <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
-  <title>cart</title>
+  <title>購入履歴</title>
 </head>
 <body class="drawer drawer--right">
-{% include 'header.html.twig' %}
-  <div id="wrapper">
-    <div id="cart_list">
-          {% if dataArr | length == 0 %}
-        <p>過去に購入された商品はありません</p>
-      {% else %}
-      <p>購入履歴</p>
-      <table>
-        <tr>
-          <th>商品画像</th>
-          <th>商品名</th>
-          <th>価格</th>
-          <th>個数</th>
-          <th>購入日時</th>
-        </tr>
-        {% for value in dataArr %}
-            <tr>
-              <td class="image"><img src="{{constant('shopping\\Bootstrap::ENTRY_URL')}}images/{{value.image}}" alt="{{value.item_name}}"></td>
-              <td class="name">{{value.item_name}}</td>
-              <td class="price">&yen;{{value.price|number_format(0, '.', ',')}}</td>
-              <td class="num">{{value.num}}</td>
-              <td class="regist_date">{{value.regist_date}}</td>
-            </tr>
-        {% endfor %}
-      </table>  
-      {% endif %}    
-    </div>
-    <a href="list.php">トップページへ</a>
-    <a href="mypage.php">マイページへ</a>
+  {% include 'header.html.twig' %}
+  <div class="history inner">
+    <h2 class="util-title">購入履歴一覧</h2>
+    {% if dataArr | length == 0 %}
+    <p>過去に購入された商品はありません</p>
+    {% else %}
+    <div class="history-wrap">
+    <table>
+      <tr>
+        <th>購入日時</th>
+        <th>合計金額</th>
+        <th>詳細</th>
+      </tr>
+      {% for value in dataArr %}
+      <tr>
+        <td>{{value.regist_date}}</td>
+        <td>&yen;{{value.price}}</td>
+        <td><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}history_view.php?regist_date={{value.regist_date}}">表示</a></td>
+      </tr>
+      {% endfor %}
+    </table>
   </div>
-{% include 'footer.html.twig' %}
+    {% endif %}    
+  </div>
+  {% include 'footer.html.twig' %}
 </body>
 </html>
