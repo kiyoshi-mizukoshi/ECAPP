@@ -101,7 +101,7 @@ button {
   @include mq(sm)
   {
     font-size: 30px;
-    padding-top: 20px;
+    padding-top: 60px;
   }
 
   &::after {
@@ -769,6 +769,7 @@ margin-top: 4px;
   border-radius: 3px;
   padding: 4px;
   margin-top: 1px;
+  cursor: pointer;
   &:hover{
     opacity: 0.7;
     transition: .4s;
@@ -1385,4 +1386,161 @@ a{
   }
 }
 
+/**********************************************
+  # history
+***************************************************/
 
+.history {
+  table {
+width: 100%;
+max-width: 980px;
+margin: 40px auto 30px;
+border-collapse: collapse;
+  }
+tr{
+  border: solid 1px #898989;
+
+}
+  th{
+    background-color: $primary_color;
+    border: solid 1px #898989;
+    color: #fff;
+    padding: 18px;
+
+  }
+  td{
+    border: solid 1px #898989;
+    text-align: center;
+    padding: 10px;
+    &:last-child{
+      a{
+        color: $primary_color;
+        padding: 1em 1em;
+        @include mq(md)
+        {
+          &:hover
+          {
+            opacity: 0.7;
+            transition: .4s;
+          }
+        }
+  
+      }
+    }
+    @include mq(sm)
+    {
+      font-size: 12px;
+    }
+  }
+}
+
+.history-wrap{
+  text-align: center;
+}
+
+
+.history-back{
+  background-color: #ccc;
+  border: none;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #6c6c6c;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  margin: 0 20px 0 0;
+  outline: 0;
+  padding: 16px 12px;
+  text-align: center;
+  width: 100%;
+  >a{
+    color: #6c6c6c;
+    font-size: 14px;
+  }
+
+  &:hover {
+    transition: .4s;
+    opacity: 0.7;
+  }
+
+}
+
+.non {
+  margin-top: 40px;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.history-list {
+
+    background-color: #fff;
+      border: #dbdbdb solid 3px;
+      border-radius: 3px;
+      margin: 30px 0 0;
+      padding: 20px;
+  
+  
+}
+.history-back-wrap {
+  background-color: #fff;
+    border: #dbdbdb solid 3px;
+    border-radius: 3px;
+    margin: 20px 0 0;
+    padding: 20px;
+
+    @include mq(sm)
+    {
+      padding: 10px;
+    }
+}
+
+
+.history-item {
+  border-bottom: solid 3px #dbdbdb;
+  
+}
+
+.history-item-wrap {
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.history-item-header {
+  flex: 0 0 240px;
+
+  @include mq(sm) 
+  {
+    flex:0 0 120px;
+  }
+}
+
+.history-item-body {
+  flex: 0 1 100%;
+text-align: center;
+}
+
+.history-item-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 4px;
+
+  @include mq(sm)
+  {
+    font-size: 12px;
+  }
+
+}
+
+.history-item-cost {
+  font-size: 14px;
+  color: #989898;
+  margin-top: 8px;
+  @include mq(sm)
+  {
+    font-size: 8px;
+    margin-top: 4px;
+  }
+
+}

@@ -57,14 +57,24 @@ class Mypage
 
   }
 
-  public function historyData($customer_no)
+  public function historyData($customer_no,$regist_date)
   {
     $table = ' history ';
     $col = ' * ';
-    $where = 'customor_no=' . "'".$customer_no."'";
+    $where = 'customor_no=' . "'".$customer_no."' and regist_date="."'$regist_date'";
     $res = $this->db->select($table, $col,$where);
     return $res;
   }
+
+  public function historyRegistData($customer_no)
+  {
+    $table = ' history ';
+    $col = ' regist_date, sum(price) as price ';
+    $where = 'customor_no=' . "'".$customer_no."' group by regist_date";
+    $res = $this->db->select($table, $col,$where);
+    return $res;
+  }
+
 
 
   public function errorCheck($join)

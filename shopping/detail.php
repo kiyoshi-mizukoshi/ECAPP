@@ -55,17 +55,17 @@ if (isset($_SESSION['id'])) {//ログインしているとき
   $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
   $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
 }
-
 $msg='';
 // item_idを取得する
 $item_id = (isset($_GET['item_id']) === true && preg_match('/^\d+$/' , $_GET['item_id']) === 1) ? $_GET['item_id'] : '';
 $customer_no = (isset($_SESSION['id']) === true && preg_match('/^\d+$/' , $_SESSION['id']) === 1) ? $_SESSION['id'] : '';
 $num= (isset($_POST['num']) === true && preg_match('/^\d+$/' , $_POST['num']) === 1) ? $_POST['num'] : '';
+$cart_in= (isset($_POST['cart_in']) === true) ? $_POST['cart_in'] : '';
+
 //item_idが取得できていない場合、商品一覧へ遷移させる
 if($item_id === '') {
   header('Location: ' . Bootstrap::ENTRY_URL. 'list.php');
 }
-
 //カテゴリーリスト（一覧）を取得する 
 $cateArr = $itm->getCategoryList();
 
@@ -102,8 +102,11 @@ if($count>0)
 
 }
 }
+if(!empty($cart_in !== '' && $customer_no== '')){
+  header('Location: ' . Bootstrap::ENTRY_URL. 'login_form.php');
 
-if($num !== '')
+}
+if($num !== '' && $customer_no !=='')
 {
   $res = $cart->insCartData2($customer_no, $item_id,$num);
   header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');

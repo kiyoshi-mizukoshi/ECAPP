@@ -53,9 +53,11 @@ if (isset($_SESSION['id'])) {//ログインしているとき
   $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
   $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
 }
-$customer_no = $_SESSION['id'];
 
-$dataArr = $mypage->historyRegistData($customer_no);
+$customer_no = $_SESSION['id'];
+$regist_date = (isset($_GET['regist_date']) ===  true) ? $_GET['regist_date'] : '';
+
+$dataArr = $mypage->historyData($customer_no,$regist_date);
 $context = [];
 $context['dataArr'] = $dataArr;
 $context['name'] = $name;
@@ -63,7 +65,7 @@ $context['gest'] = $gest;
 $context['link'] = $link;
 $context['regist'] = $regist;
 $context['cateArr'] = $_SESSION['cateArr'];
-$template = $twig->loadTemplate('history.html.twig');
+$template = $twig->loadTemplate('history_view.html.twig');
 $template->display($context);
 
 ?>
