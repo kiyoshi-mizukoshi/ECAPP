@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>商品名</th>
+      <th>説明文</th>
+      <th>価格</th>
+      <th>画像</th>
+      <th>カテゴリー</th>
+      <th>編集</th>
+    </tr>
+      {% for value in dataArr %}
+    <tr>
+      <td>{{value.item_id}}</td>
+      <td>
+        {{value.item_name}}
+      </td>
+      <td>{{value.detail}}</td>
+      <td>{{value.price}}</td>
+      <td>{{value.image}}</td>
+      <td>{{value.category_name}}</td>
+      <td>
+        <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}admin_products_update.php?item_id={{value.item_id}}">編集</a>
+      </td>
+    </tr>
+      {% endfor %}
+  </table>
+</body>
+</html>

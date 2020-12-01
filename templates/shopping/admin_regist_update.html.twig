@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>お名前（氏名) :</th>
+      <td>{{dataArr[0].family_name}} {{dataArr[0].first_name}}</td>
+    </tr>
+    <tr>
+      <th>お名前（かな）:</th>
+      <td>
+        {{dataArr[0].family_name_kana}} {{dataArr[0].first_name_kana}}
+      </td>
+    </tr>
+    <tr>
+      <th>生年月日 :</th>
+      <td>{{dataArr[0].year}}年 {{dataArr[0].month}}月 {{dataArr[0].day}}日</td>
+    </tr>
+    <tr>
+      <th>郵便番号 :</th>
+      <td>{{dataArr[0].zip1}} - {{dataArr[0].zip2}}</td>
+    </tr>
+    <tr>
+      <th>住所 :</th>
+      <td>{{dataArr[0].address}}</td>
+    </tr>
+    <tr>
+      <th>メールアドレス :</th>
+      <td>{{dataArr[0].email}}</td>
+    </tr>
+    <tr>
+      <th>電話番号 :</th>
+      <td>{{dataArr[0].tel1}} - {{dataArr[0].tel2}} - {{dataArr[0].tel3}}</td>
+    </tr>
+      <tr>
+      <th>登録日時 :</th>
+      <td>{{dataArr[0].regist_date}}</td>
+    </tr>
+  </table>
+
+</body>
+</html>

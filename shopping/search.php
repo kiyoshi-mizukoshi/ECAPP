@@ -54,6 +54,11 @@ $context = [];
 $context['search'] = $search;
 $context['errmsg'] = $errmsg;
 $context['searchArr'] = $searchArr;
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
 $template = $twig->loadTemplate('search.html.twig');
 $template->display($context);
 

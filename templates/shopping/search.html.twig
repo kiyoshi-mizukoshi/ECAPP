@@ -28,7 +28,7 @@
 </head>
 <body class="drawer drawer--right">
   {% include 'header.html.twig' %}
-  <div class="inner section">
+  <div class="inner section wow fadeInUp">
     <p class="util-title">“{{search}}”の検索結果</p>
     <p class="search-text">{{errmsg}}</p>
       <ul class="products-list ">
@@ -49,6 +49,9 @@
   <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}list.php" class="util-link">商品一覧へ戻る</a>
   </div>
 {% include 'footer.html.twig' %}
+  <script>
+  new WOW().init();
+  </script>  
 </body>
 </html>
 
