@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
+  <title>売上管理</title>
+</head>
+<body>
+  <div class="admin-shopping inner">
+    <h2 class="util-title">売上管理</h2>
+    <p class="period">期間指定</p>
+    <form action="" method="POST">
+      <input type="text" name="year" id="" maxlength="4" size="4" value="" required>年
+      <input type="text" name="month" id="" maxlength="2" size="2" value="" required>月
+      <input type="text" name="day" id="" maxlength="2" size="2" value="" required>日
+      〜
+      <input type="text" name="secondYear" id="" maxlength="4" size="4" value="" required>年
+      <input type="text" name="secondMonth" id="" maxlength="2" size="2" value="" required>月
+      <input type="text" name="secondDay" id="" maxlength="2" size="2" value="" required>日
+      <input type="submit" value="集計" name="aggregate">
+    </form>
+    {{checkdate |raw}}
+    {% if dataArr | length > 0 %}
+    <table>
+      <tr>
+        <th>日付</th>
+        <th>売上</th>
+      </tr>
+      {% for value in dataArr %}
+      <tr>
+        <td>{{value.date}}</td>
+        <td>{{value.price}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+  </div>
+</body>
+</html>

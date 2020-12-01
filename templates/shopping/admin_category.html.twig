@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>カテゴリ名</th>
+    </tr>
+        {% for value in cateArr %}
+        <tr>
+        <td>{{value.category_name}}</td>
+        </tr>
+        {% endfor %}
+  </table>
+  <p class="category-add">カテゴリー追加</p>
+  <form action="" method="post">
+  <input type="text" name="category_name" id="" value="">
+  <input type="submit" value="追加" name="submit">
+</form>
+{{msg}}
+</body>
+</html>
