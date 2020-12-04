@@ -44,7 +44,8 @@ if(isset($_POST['submit']) ===true){
   if(preg_match('/^\d+$/' , $detail['price']) === 0)
   {
     $msg='価格は数字で入力してください';
-    
+    exit('価格は数字で入力してください');
+
   }
   //var_dump($tmp_image);
   //エラーがなく、サイズが０ではないか

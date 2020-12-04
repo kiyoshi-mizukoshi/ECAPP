@@ -36,25 +36,10 @@ class Cart
   //カートの情報を取得する（必要な情報は、誰が$customer_no。必要な商品情報は名前、商品画像、金額)
   public function getCartData($customer_no)
   {
-    // SELECT
-    // c.crt_id,
-    // i.item_id,
-    // i.item_name,
-    // i.price,
-    // i.image ' ;
-    // FROM
-    // cart c
-    // LEFT JOIN
-    // item i
-    // ON
-    //c.item_id = i.item_id ';
-    // WHERE
-    // c.customer_no = ? AND c.delete_flg = ? ';
     $table = ' cart c LEFT JOIN item i  ON c.item_id = i.item_id ';
     $column = '  MAX(c.crt_id) as crt_id, i.item_id, i.item_name, i.price, i.image ,sum(num) as num';
     $where = ' c.customer_no = ? AND c.delete_flg = ? group by i.item_id ';
     $arrVal = [$customer_no, 0];
-
     return $this->db->select($table, $column, $where, $arrVal);
   }
 

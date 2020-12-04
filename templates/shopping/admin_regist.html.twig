@@ -12,7 +12,7 @@
       <th>お名前</th>
       <th>メール</th>
       <th>登録日時</th>
-      <th>詳細・編集</th>
+      <th>詳細</th>
     </tr>
       {% for value in dataArr %}
     <tr>
@@ -24,7 +24,7 @@
       <td>{{value.email}}</td>
       <td>{{value.regist_date}}</td>
       <td>
-        <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}admin_regist_update.php?mem_id={{value.mem_id}}">表示</a>
+        <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}admin_regist_detail.php?mem_id={{value.mem_id}}">表示</a>
       </td>
     </tr>
       {% endfor %}
