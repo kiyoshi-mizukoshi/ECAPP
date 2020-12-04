@@ -93,7 +93,7 @@ class Cart
   public function getItemAndSumPrice($customer_no)
   {
     $table = " cart c LEFT JOIN item i ON c.item_id = i.item_id ";
-    $column = " SUM( i.price ) AS totalPrice ";
+    $column = " SUM( i.price * c.num ) AS totalPrice ";
     $where = ' c.customer_no = ? AND c.delete_flg = ?';
     $arrWhereVal = [$customer_no, 0];
 

@@ -63,6 +63,13 @@
       {% endfor %}
       </ul>
     </div>
+    <div class="util-link-wrap">
+    {% if page > 1 %}
+      <a href="index.php?page={{page-1}}#products" class="util-link">前ページへ</a>
+    {% endif %}
+    {% if page < maxpage %}<a href="index.php?page={{page+1}}#products" class="util-link">次ページへ</a>
+{% endif %}
+    </div>
     <!-- /.products -->
     </main>
     <!-- /.main -->

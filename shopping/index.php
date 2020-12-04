@@ -54,11 +54,18 @@ $ctg_id = (isset($_GET[('ctg_id')]) === true && preg_match('/^[0-9]+$/' , $_GET[
 //カテゴリーリスト（一覧）を取得する
 $cateArr = $itm->getCategoryList();
 $_SESSION['cateArr'] = $cateArr;
+
+$page= (isset($_GET['page']) === true && preg_match('/^\d+$/' , $_GET['page']) === 1) ? $_GET['page'] : '1';
+//全体の件数を取得する
+$count = $itm->countItem();
+$maxpage = ceil($count[0]['count']/12);
 //商品リストを取得する
-$dataArr = $itm->getItemList($ctg_id);
+$dataArr = $itm->getItemList($ctg_id,$page);
 $context = [];
 $context['cateArr'] = $cateArr;
 $context['dataArr'] = $dataArr;
+$context['page'] = $page;
+$context['maxpage'] = $maxpage;
 $context['name'] = $name;
 $context['gest'] = $gest;
 $context['link'] = $link;
