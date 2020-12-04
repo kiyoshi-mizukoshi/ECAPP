@@ -38,7 +38,7 @@ if(!empty($gestLogin))
 {
   $_SESSION['id'] = $gestLogin[0]['mem_id'];
   $_SESSION['name'] = $gestLogin[0]['family_name'].$gestLogin[0]['first_name'];
-  header('Location: ' . Bootstrap::ENTRY_URL. 'list.php');
+  header('Location: ' . Bootstrap::ENTRY_URL. 'index.php');
 }
 
 $context = [];

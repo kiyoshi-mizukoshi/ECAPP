@@ -1,11 +1,11 @@
 <div id="category">
 <ul>
   <li>
-  <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}list.php">全て</a>
+  <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}index.php">全て</a>
   </li>
   {% for value in cateArr %}
   <li>
-  <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}list.php?ctg_id={{value.ctg_id}}">{{value.category_name}}</a>
+  <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}index.php?ctg_id={{value.ctg_id}}">{{value.category_name}}</a>
   </li>
   {% endfor %}
 

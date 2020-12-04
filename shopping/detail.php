@@ -64,7 +64,7 @@ $cart_in= (isset($_POST['cart_in']) === true) ? $_POST['cart_in'] : '';
 
 //item_idが取得できていない場合、商品一覧へ遷移させる
 if($item_id === '') {
-  header('Location: ' . Bootstrap::ENTRY_URL. 'list.php');
+  header('Location: ' . Bootstrap::ENTRY_URL. 'index.php');
 }
 //カテゴリーリスト（一覧）を取得する 
 $cateArr = $itm->getCategoryList();
