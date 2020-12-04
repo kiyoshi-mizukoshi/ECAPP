@@ -29,12 +29,13 @@ class Item
   }
 
   //商品リストを取得する
-  public function getItemList($ctg_id)
+  public function getItemList($ctg_id,$page)
   {
+    $pages=($page - 1)*12;
     //カテゴリーによって表示させるアイテムをかえる
     $table = ' item ';
     $col = ' item_id, item_name, price,image, ctg_id ';
-    $where = ($ctg_id !== '') ? ' ctg_id = ? ' : '';
+    $where = ($ctg_id !== '') ? ' ctg_id = ? ' : 'item_id '  .'LIMIT 12 OFFSET '.$pages.'';
     $arrVal = ($ctg_id !== '') ? [$ctg_id] : [];
 
     $res = $this->db->select($table, $col,$where,$arrVal);
@@ -54,6 +55,19 @@ class Item
     $res = $this->db->select($table, $col, $where, $arrVal);
 
     return ($res !== false && count($res) !== 0) ? $res : false;
+  }
+
+  public function countItem()
+  {
+    $table = ' item ';
+    $col = ' count(item_id) as count ';
+
+    $where ='';
+    //カテゴリーによって表示させるアイテムをかえる
+    $arrVal = [];
+    $res = $this->db->select($table, $col, $where, $arrVal);
+    return ($res !== false && count($res) !== 0) ? $res : false;
+
   }
 }
 
