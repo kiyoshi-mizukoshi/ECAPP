@@ -33,12 +33,11 @@ $db = new PDODatabase(
 $ses = new Session($db);
 $admin = new Admin($db);
 $mem_id= (isset($_GET['mem_id']) === true ) ? $_GET['mem_id'] : '';
-
 $dataArr = '';
 $dataArr = $admin->selectAllAdmin($mem_id);
 $context = [];
 $context['dataArr']=$dataArr;
-$template = $twig->loadTemplate('admin_regist_update.html.twig');
+$template = $twig->loadTemplate('admin_regist_detail.html.twig');
 $template->display($context);
 
 

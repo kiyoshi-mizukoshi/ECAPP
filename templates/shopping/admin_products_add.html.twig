@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
+
+
   <title>Document</title>
 </head>
 <body>
@@ -19,14 +24,20 @@
       <td><input type="text" name="item_name" id="" value="" required></td>
       <td><textarea name="detail" id="" cols="30" rows="10" value="" required></textarea></td>
       <td><input type="text" name="price" id="" value="" required></td>
-      <td><input type="file" name="image" id="" value="" required></td>
+      <td><input type="file" name="image" id="input-file" value="" required></td>
       <td><select name="ctg_id" id="" value="">
         {% for value in cateArr %}
         <option value="{{value.ctg_id}}" name="ctg_id">{{value.category_name}}</option>
         {% endfor %}
-      
-        <option value=""></option>
       </select></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><div id="preview"></div>
+      </td>
+      <td></td>
     </tr>
   </table>
   <input type="submit" value="商品追加" name="submit">

@@ -100,8 +100,10 @@ class Common
 
   private function mailCheck()
   {
-    if(preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+[a-zA-Z0-9\._-]+$/' , $this->dataArr['email'])===0){
+    if(preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@{1}[a-zA-Z0-9.]{1,}\.[a-zA-Z0-9.]{1,}+$/' , $this->dataArr['email'])===0){
       $this->errArr['email'] = 'メールアドレスを正しい形式で入力してください';
+      //  if(preg_match('/^[a-zA-Z0-9]{1}[a-zA-Z0-9!-~]*@{1}[a-zA-Z0-9.]{1,}\.[a-zA-Z0-9.]{1,}+$/',$mail)===1)
+
     }
     }
 

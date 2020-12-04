@@ -1,4 +1,16 @@
 $(function(){
+
+  $('#input-file').change(function(){
+    $('img').remove();
+    var file = $(this).prop('files')[0];
+    var fileReader = new FileReader();
+    fileReader.onloadend = function() {
+        $('#preview').html('<img src="' + fileReader.result + '"/>');
+        $('img').addClass('resize-image');
+    }
+    fileReader.readAsDataURL(file);
+});
+
   $(".cart-number").change(function() {
 
     var num = $('option:selected').val();
@@ -48,4 +60,16 @@ $(function(){
       }
     }
   });
+
+  $('#myImage').on('change', function (e) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $("#preview").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(e.target.files[0]); 
+});
+
+
+
+
 });

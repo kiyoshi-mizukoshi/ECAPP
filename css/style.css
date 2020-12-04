@@ -1514,3 +1514,8 @@ button a {
     margin-top: 4px;
   }
 }
+
+.resize-image {
+  width: 180px;
+  height: 180px;
+}

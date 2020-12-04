@@ -168,7 +168,6 @@ button {
   .header-logo{
     a{
       color: $font_color;
-
     }
     @include mq(md)
     {
@@ -1544,3 +1543,11 @@ text-align: center;
   }
 
 }
+
+
+.resize-image{
+  width: 180px;
+  height: 180px;
+}
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<form action="" method="post">
+  <table>
+    <tr>
+      <th>商品名</th>
+      <th>説明文</th>
+      <th>価格</th>
+      <th>カテゴリー</th>
+      <th>画像</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="item_name" id="" value=""></td>
+      <td><textarea name="detail" id="" cols="30" rows="10" value=""></textarea></td>
+      <td><input type="text" name="price" id="" value=""></td>
+      <td><select name="ctg_id" id="" value="">
+        {% for value in cateArr %}
+        <option value="{{value.ctg_id}}" name="ctg_id">{{value.category_name}}</option>
+        {% endfor %}
+      
+        <option value=""></option>
+      </select></td>
+      <td><img src="" alt=""></td>
+
+    </tr>
+  </table>
+  <input type="submit" value="変更" name="submit">
+  <input type="submit" value="削除" name="remove">
+  {{msg}}
+</form>
+<a href="admin_products_imageupdate.php">画像を変更する</a>
+</body>
+</html>
