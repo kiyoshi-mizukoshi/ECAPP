@@ -17,7 +17,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
 
   <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
-  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/common.js"></script>
+  <!-- <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/common.js"></script> -->
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
   <title>会員登録</title>
 </head>
@@ -64,10 +65,7 @@
           </div>
           <div class="regist-item">
             <dt class="regist-item-title">郵便番号</dt>
-            <dd class="regist-item-input"><input type="text" name="zip1" value="{{dataArr.zip1}}" id="zip1" size="3" maxlength="3" required> 
-              -
-              <input type="text" name="zip2" value="{{dataArr.zip2}}" id="zip2" size="4" maxlength="4" required>
-              <input type="button" name="address_search" value="〒から住所を入力" id="address_search">
+              <dd class="regist-item-input"><input type="text" name="zip1" size="4" maxlength="3" value="{{dataArr.zip1}}"> － <input type="text" name="zip2" size="5" maxlength="4" value="{{dataArr.zip2}}" onKeyUp="AjaxZip3.zip2addr('zip1','zip2','address','address');">
               {% if errArr.zip1 | length > 0 %}<br><span class="err">{{errArr.zip1}}</span>{% endif %}
               {% if errArr.zip2 | length > 0 %}<br><span class="err">{{errArr.zip2}}</span>{% endif %}</dd>
             </div>
