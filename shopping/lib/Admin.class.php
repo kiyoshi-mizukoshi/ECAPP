@@ -91,6 +91,43 @@ public function categoryAdd($newcategory)
 
 }
 
+public function productsData($item_id)
+{
+  $table = ' item ';
+  $column = ' * ';
+  $where = ' item_id = ? ';
+  $arrVal = [$item_id];
+  return $this->db->select($table, $column, $where, $arrVal);
+}
 
+public function productsCategory($ctg_id)
+{
+  $table = ' category ';
+  $col = ' ctg_id, category_name ';
+  $where = 'ctg_id = ?';
+  $arrVal = [$ctg_id];
+  return $this->db->select($table, $col, $where, $arrVal);
+}
+
+public function updateProducts($dataArr,$id)
+{
+  unset($dataArr['submit']);
+  $table = ' item ';
+  $insData = $dataArr;
+  $where = ' item_id = ? ';
+  $arrWhereVal =  [$id];
+
+  return $this->db->update($table, $insData, $where, $arrWhereVal);
+}
+
+public function removeProducts($id)
+{
+  //DELETE FROM `item` WHERE `item`.`item_id` = 22
+  $table =' item ';
+  $where = ' item_id = ? ';
+  $arrval = [$id];
+  return $this->db->delete($table, $where, $arrval);
+
+}
 }
 ?>

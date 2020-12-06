@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -16,22 +18,20 @@
       <th>画像</th>
     </tr>
     <tr>
-      <td><input type="text" name="item_name" id="" value=""></td>
-      <td><textarea name="detail" id="" cols="30" rows="10" value=""></textarea></td>
-      <td><input type="text" name="price" id="" value=""></td>
+      <td><input type="text" name="item_name" id="" value="{{dataArr[0].item_name}}"></td>
+      <td><textarea name="detail" id="" cols="30" rows="10" value="">{{dataArr[0].detail}}</textarea></td>
+      <td><input type="text" name="price" id="" value="{{dataArr[0].price|number_format(0, '.', ',')}}"></td>
       <td><select name="ctg_id" id="" value="">
         {% for value in cateArr %}
-        <option value="{{value.ctg_id}}" name="ctg_id">{{value.category_name}}</option>
+        <option value="{{value.ctg_id}}" name="ctg_id" {% if  value.ctg_id == dataArr[0].ctg_id %}selected{% endif %}>{{value.category_name}}</option>
         {% endfor %}
-      
-        <option value=""></option>
       </select></td>
-      <td><img src="" alt=""></td>
+      <td><img src="{{constant('shopping\\Bootstrap::ENTRY_URL')}}images/{{dataArr[0].image}}" alt=""></td>
 
     </tr>
   </table>
   <input type="submit" value="変更" name="submit">
-  <input type="submit" value="削除" name="remove">
+  <input type="button" value="削除" name="remove" id="js-remove">
   {{msg}}
 </form>
 <a href="admin_products_imageupdate.php">画像を変更する</a>

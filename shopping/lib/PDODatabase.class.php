@@ -262,6 +262,26 @@ class PDODatabase
     //sqlを実行した履歴を残すため
   }
 
+  public function delete($table,  $where = '', $arrVal = [])
+  {
+    $sql = " DELETE FROM "
+    . $table
+    . " WHERE "
+    . $where;
+
+    $this->sqlLogInfo($sql, $arrVal);
+
+    $stmt = $this->dbh->prepare($sql);//用意
+    $res = $stmt->execute($arrVal);//実行 customer_noがはいる
+    if($res === false) {
+      $this->catchError($stmt->errorInfo());
+    }
+
+  return $res;
+
+}
+
+  
 
 }
 
