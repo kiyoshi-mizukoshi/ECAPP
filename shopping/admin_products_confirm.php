@@ -34,32 +34,21 @@ $db = new PDODatabase(
 $ses = new Session($db);
 $admin = new Admin($db);
 $itm = new Item($db);
-$cateArr = $itm->getCategoryList();
-$item_id = (isset($_GET['item_id']) === true && preg_match('/^\d+$/' , $_GET['item_id']) === 1) ? $_GET['item_id'] : '';
-$msg='';
-$dataArr = '';
-if($item_id !== ''){
-  $dataArr = $admin->productsData($item_id);
-}
-$_SESSION['item_id'] = $item_id;
-$detail='';
-$detail=$_POST;
-if(isset($_POST['submit']) ===true){
-  if(preg_match('/^\d+$/' , $detail['price']) === 0)
-  {
-    $msg='価格は数字で入力してください';
-  }else{
-    $_SESSION['detail'] = $detail;
-    header('Location: ' . Bootstrap::ENTRY_URL. 'admin_products_confirm.php');
+$ctg = '';
+$dataArr = $_SESSION['detail'];
+$id= $_SESSION['item_id'];
+$ctg_id=$_SESSION['detail']['ctg_id'];
+$ctg = $admin->productsCategory($ctg_id);
+var_dump($dataArr);
+if(!empty($_POST['submit'])){
+  $update = $admin->updateProducts($dataArr,$id);
+  header('Location: ' . Bootstrap::ENTRY_URL. 'admin_products_complete.php');
 
-  }
 }
-var_dump($_POST);
 $context = [];
-$context['cateArr'] = $cateArr;
-$context['msg'] = $msg;
-$context['dataArr'] = $dataArr;
-$template = $twig->loadTemplate('admin_products_update.html.twig');
+$context['confirm'] = $_SESSION['detail'];
+$context['ctg'] = $ctg[0]['category_name'];
+$template = $twig->loadTemplate('admin_products_confirm.html.twig');
 $template->display($context);
 
 
