@@ -24,25 +24,22 @@
 {% include 'header.html.twig' %}
   <div class="login inner">
     <div class="login-wrap">
-      <h2 class="login-text">ログインしてください</h2>
-      <form action="login.php" method="post">
+      <h2 class="util-title">管理者ログイン</h2>
+      <form action="" method="post">
         <dl class="login-list">
           <div class="login-item">
             <dt class="login-item-title">メールアドレス</dt>
-            <dd class="login-item-input"><input type="email" name="email" size="40" value="{{dataArr.email}}" required><br></dd>
+            <dd class="login-item-input"><input type="email" name="email" size="40" value=""><br></dd>
           </div>
           <div class="login-item">
             <dt class="login-item-title">パスワード</dt>
-            <dd class="login-item-input"><input type="password" name="password" value="{{dataArr.password}}" size="16"></dd>
+            <dd class="login-item-input"><input type="password" name="password" value="" size="16"></dd>
           </div>
         </dl>
         <div class="login-footer">
-          <input type="submit" value="ログイン" class="util-link">
-          <a href="gestlogin.php" class="util-link">ゲストログイン</a>
-        </div>
-          <a href="regist.php" class="regist-link">会員登録がまだの方はこちらから</a><br>
-          <a href="admin_login_form.php" class="regist-link">管理者ログインへ</a><br>
-
+          <span class="err">{{msg}}<span>
+          <input type="submit" value="ログイン" class="util-link" name="submit">
+          <input type="submit" value="ゲストログイン" class="util-link" name="gest">
       </form>
     </div>
   </div>

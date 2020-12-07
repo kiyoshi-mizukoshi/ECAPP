@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">  <title>Document</title>
+</head>
+<body>
+  <form action="" method="post" enctype="multipart/form-data">
+    <table>
+      <tr>
+        <th>新しい画像</th>
+      </tr>
+      <tr>
+        <td><input type="file" name="image" id="input-file" value="" required></td>
+      </tr>
+      <tr>
+        <td><div id="preview"></div>
+      </tr>
+    </table>
+    <input type="submit" value="画像変更" name="submit">
+  </form>
+  <span class="err">{{msg}}</span>
+  <a href="admin.php">管理トップへ</a>
+</body>
+</html>

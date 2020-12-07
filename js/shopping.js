@@ -11,6 +11,17 @@ $('#js-remove').click(function(){
 }
 });
 
+$('#mem-remove').click(function(){
+  if(!confirm('本当に削除しますか？')){
+      /* キャンセルの時の処理 */
+      return false;
+  }else{
+      /*　OKの時の処理 */
+      var remove = $("#mem-remove").val();
+      location.href = "admin_regist_complete.php?remove=" + remove;
+}
+});
+
 
   $('#input-file').change(function(){
     $('img').remove();

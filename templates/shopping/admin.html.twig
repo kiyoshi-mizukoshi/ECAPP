@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>管理画面</title>
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">  <title>管理画面</title>
 </head>
 <body>
   <div class="admin inner">
-  <h2 class="util-title">管理TOP</h2>
+  <h2 class="admin-title">管理TOP</h2>
 
   <h3>会員管理</h3>
-  <a href="admin_regist.php">会員一覧・編集</a>
+  <a href="admin_regist.php" class="admin-link">会員一覧・編集</a>
   <h3>商品管理</h3>
-  <a href="admin_products.php">商品一覧/編集</a>
-  <a href="admin_products_add.php">商品追加</a>
+  <a href="admin_products.php" class="admin-link">商品一覧/編集</a><br>
+  <a href="admin_products_add.php" class="admin-link">商品追加</a>
   <h3>カテゴリ管理</h3>
-  <a href="admin_category.php">カテゴリ管理</a>
+  <a href="admin_category.php" class="admin-link">カテゴリ管理</a>
   <h3>売上管理</h3>
-  <a href="admin_shopping.php">売上管理</a>
+  <a href="admin_shopping.php" class="admin-link">売上管理</a>
+  <h3>ユーザー</h3>
+  <a href="index.php" class="admin-link">ユーザー画面へ</a>
 </div>
 </body>
 </html>
