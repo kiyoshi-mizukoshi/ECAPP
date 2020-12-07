@@ -4,7 +4,7 @@ namespace shopping;
 
 date_default_timezone_set('Asia/Tokyo');//時間設定を日本にする
 
-require_once dirname(__FILE__) . './../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 if (file_exists(__DIR__ . '/../.env')) {
   class Bootstrap
   {
