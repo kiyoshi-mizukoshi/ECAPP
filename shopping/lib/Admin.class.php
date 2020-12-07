@@ -54,7 +54,7 @@ public function selectAdmin()
 public function selectAllAdmin($mem_id)
 {
   $table = ' member';
-  $column = ' mem_id, family_name, first_name, family_name_kana, first_name_kana, year, month, day, zip1, zip2, address, email, tel1, tel2, tel3, regist_date';
+  $column = ' mem_id, family_name, first_name, family_name_kana, first_name_kana, year, month, day, zip1, zip2, address, address2, email, tel1, tel2, tel3, regist_date';
   $where = 'mem_id=?';
   $arrVal = [$mem_id];
   return $this->db->select($table, $column, $where, $arrVal);

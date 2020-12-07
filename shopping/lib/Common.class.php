@@ -28,6 +28,7 @@ class Common
     $this->telCheck();
     $this->mailCheck();
     $this->passCheck();
+    $this->pass2Check();
     $this->mailDuplicate();
 
     return $this->errArr;
@@ -134,6 +135,16 @@ class Common
   {
     if(strlen($this->dataArr['password'])<8 ||strlen($this->dataArr['password'])>16){
       $this->errArr['password'] = 'パスワードは半角英数字8桁以上16文字未満で入力してください';
+    }
+  }
+
+  private function pass2Check()
+  {
+    if(strlen($this->dataArr['password2'])<8 ||strlen($this->dataArr['password2'])>16){
+      $this->errArr['password'] = 'パスワードは半角英数字8桁以上16文字未満で入力してください';
+    }elseif($this->dataArr['password'] !== $this->dataArr['password2'])
+    {
+      $this->errArr['password2'] = 'パスワードが確認用と一致しません';
     }
   }
 

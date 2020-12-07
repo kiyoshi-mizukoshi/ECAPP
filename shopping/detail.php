@@ -108,8 +108,16 @@ if(!empty($cart_in !== '' && $customer_no== '')){
 }
 if($num !== '' && $customer_no !=='')
 {
-  $res = $cart->insCartData2($customer_no, $item_id,$num);
-  header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');
+  $count = $cart->countData($customer_no, $item_id);
+  if($count[0]['item_id']>0){
+    $res = $cart->updateCartData($customer_no, $item_id,$num);
+    header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');
+
+  }else{
+    $res = $cart->insCartData2($customer_no, $item_id,$num);
+    header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');
+  
+  }
 }
 
 $context = [];

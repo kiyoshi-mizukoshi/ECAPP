@@ -94,6 +94,7 @@ switch ($mode) {
 
           //↓この情報はいらないので外しておく
           unset($dataArr['complete']);
+          unset($dataArr['password2']);
                   $res= $member->insertData($dataArr);
                     //登録成功時は完成ページへ
                     if($res===true){

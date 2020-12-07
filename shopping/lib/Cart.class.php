@@ -78,6 +78,7 @@ class Cart
   public function buyCart($value)
   {
     $table = ' history ';
+    $value['total_price'] = $value['price']* $value['num'];
     $insData = $value;
     foreach($insData as $val){
       return $this->db->insert($table, $insData);
@@ -109,6 +110,16 @@ class Cart
     return [$num, $price];
 
   }
+
+  public function countData($customer_no, $item_id)
+  {
+    $table = ' cart ';
+    $column = ' count(item_id) as item_id ';
+    $where = ' customer_no = ? AND delete_flg = 0 AND item_id = ? ';
+    $arrVal = [$customer_no, $item_id];
+    return $this->db->select($table, $column, $where, $arrVal);
+  }
+
 
 }
 
