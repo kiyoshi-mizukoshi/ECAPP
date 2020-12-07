@@ -3,9 +3,8 @@
 namespace shopping;
 
 date_default_timezone_set('Asia/Tokyo');//時間設定を日本にする
-
+require_once dirname(__FILE__) . './../vendor/autoload.php';
 if (file_exists(__DIR__ . '/../.env')) {
-  require_once '../vendor/autoload.php';
 
   class Bootstrap
   {
@@ -29,12 +28,11 @@ if (file_exists(__DIR__ . '/../.env')) {
   
 
 }else {
-  require_once '../vendor/autoload.php';
 
   class Bootstrap
   {
     // const APP_DIR = '/Applications/MAMP/htdocs/ECAPP/';
-    const APP_DIR = "";
+    const APP_DIR = "/app/";
   
     const TEMPLATE_DIR = self::APP_DIR . 'templates/shopping/';
   
