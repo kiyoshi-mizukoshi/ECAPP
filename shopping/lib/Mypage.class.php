@@ -13,7 +13,7 @@ class Mypage
   public function getRegist()
   {
     $table = ' member ';
-    $col = ' mem_id, family_name, first_name, family_name_kana, first_name_kana, year, month, day, zip1, zip2, address, email, tel1, tel2, tel3, password, regist_date  ';
+    $col = ' mem_id, family_name, first_name, family_name_kana, first_name_kana, year, month, day, zip1, zip2, address, address2, email, tel1, tel2, tel3, password, regist_date  ';
     $where = 'mem_id=' . "'".$_SESSION['id']."'";
     $res = $this->db->select($table, $col,$where);
     return $res;
@@ -69,7 +69,7 @@ class Mypage
   public function historyRegistData($customer_no)
   {
     $table = ' history ';
-    $col = ' regist_date, sum(price) as price ';
+    $col = ' regist_date, sum(total_price) as price ';
     $where = 'customor_no=' . "'".$customer_no."' group by regist_date";
     $res = $this->db->select($table, $col,$where);
     return $res;

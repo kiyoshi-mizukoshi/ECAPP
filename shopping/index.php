@@ -56,11 +56,12 @@ $cateArr = $itm->getCategoryList();
 $_SESSION['cateArr'] = $cateArr;
 
 $page= (isset($_GET['page']) === true && preg_match('/^\d+$/' , $_GET['page']) === 1) ? $_GET['page'] : '1';
-//全体の件数を取得する
-$count = $itm->countItem();
-$maxpage = ceil($count[0]['count']/12);
 //商品リストを取得する
 $dataArr = $itm->getItemList($ctg_id,$page);
+//全体の件数を取得する
+$count = $itm->countItem($ctg_id);
+$maxpage = ceil($count[0]['count']/12);
+
 $context = [];
 $context['cateArr'] = $cateArr;
 $context['dataArr'] = $dataArr;

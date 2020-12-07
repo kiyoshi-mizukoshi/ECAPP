@@ -15,7 +15,7 @@ class initMaster
     //現在の年を取得＋１＝来年
 
     //年を作成
-    for($i = 1900; $i < $next_year; $i++){
+    for($i = 1920; $i < $next_year; $i++){
       $year = sprintf("%04d",$i);
       $yearArr[$year] = $year . '年';
     }

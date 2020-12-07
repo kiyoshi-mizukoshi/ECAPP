@@ -57,14 +57,14 @@ class Item
     return ($res !== false && count($res) !== 0) ? $res : false;
   }
 
-  public function countItem()
+  public function countItem($ctg_id)
   {
     $table = ' item ';
     $col = ' count(item_id) as count ';
 
-    $where ='';
+    $where =($ctg_id !== '') ? ' ctg_id = ? ' : ' item_id ';
     //カテゴリーによって表示させるアイテムをかえる
-    $arrVal = [];
+    $arrVal = [$ctg_id];
     $res = $this->db->select($table, $col, $where, $arrVal);
     return ($res !== false && count($res) !== 0) ? $res : false;
 
