@@ -4,8 +4,9 @@ namespace shopping;
 
 date_default_timezone_set('Asia/Tokyo');//時間設定を日本にする
 
-require_once '../vendor/autoload.php';
 if (file_exists(__DIR__ . '/../.env')) {
+  require_once '../vendor/autoload.php';
+
   class Bootstrap
   {
     const APP_DIR = '/Applications/MAMP/htdocs/ECAPP/';
@@ -28,6 +29,8 @@ if (file_exists(__DIR__ . '/../.env')) {
   
 
 }else {
+  require_once './vendor/autoload.php';
+
   class Bootstrap
   {
     // const APP_DIR = '/Applications/MAMP/htdocs/ECAPP/';
