@@ -34,7 +34,7 @@ if (file_exists(__DIR__ . '/../.env')) {
   class Bootstrap
   {
     // const APP_DIR = '/Applications/MAMP/htdocs/ECAPP/';
-    const APP_DIR = "";
+    const APP_DIR = "/app/";
   
     const TEMPLATE_DIR = self::APP_DIR . 'templates/shopping/';
   
