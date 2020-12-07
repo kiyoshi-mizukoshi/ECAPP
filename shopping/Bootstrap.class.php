@@ -29,7 +29,7 @@ if (file_exists(__DIR__ . '/../.env')) {
   
 
 }else {
-  require_once './vendor/autoload.php';
+  require_once '/app/vendor/autoload.php';
 
   class Bootstrap
   {
