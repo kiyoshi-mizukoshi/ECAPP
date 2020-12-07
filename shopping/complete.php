@@ -6,7 +6,7 @@ require_once dirname(__FILE__) . '/Bootstrap.class.php';
 use shopping\Bootstrap;
 use shopping\lib\PDODatabase;
 use shopping\lib\Session;
-
+use shopping\lib\Login;
 
 $loader = new \Twig_Loader_Filesystem(Bootstrap::TEMPLATE_DIR);
 $twig = new \Twig_Environment($loader, ['cache' => Bootstrap::CACHE_DIR]);
@@ -30,7 +30,7 @@ $db = new PDODatabase(
     $db_type
 );
 $ses = new Session($db);
-
+$login = new Login($db);
 if (isset($_SESSION['id'])) {//ログインしているとき
   $name =  $_SESSION['name'] . 'さん';
   $link = '<a href="logout.php" class="header-nav-item-link">ログアウト</a>';
@@ -42,7 +42,13 @@ if (isset($_SESSION['id'])) {//ログインしているとき
   $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
   $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
 }
-
+$dataArr = '';
+$dataArr = $_SESSION['dataArr'];
+$res= $login->selectData($dataArr);
+if(!empty($res)){
+  $_SESSION['id'] = $res[0]['mem_id'];
+    $_SESSION['name'] = $res[0]['family_name'].$res[0]['first_name'];
+}
 $context = [];
 $template = $twig->loadTemplate('complete.html.twig');
 $template->display($context);

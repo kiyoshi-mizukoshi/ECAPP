@@ -8,7 +8,7 @@ use shopping\lib\initMaster;
 use shopping\lib\PDODatabase;
 use shopping\lib\Common;
 use shopping\lib\Member;
-
+use shopping\lib\Session;
 if (file_exists(__DIR__ . '/../.env')) {
   $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
   $dotenv->load();
@@ -33,6 +33,7 @@ $twig = new \Twig_Environment($loader,['cache' => Bootstrap::CACHE_DIR]);
 
 $common = new Common($db);
 $member = new Member($db);
+$ses = new Session($db);
 
 //モード判定（どの画面から来たかの判断）
 //登録画面から来た場合
@@ -91,15 +92,14 @@ switch ($mode) {
         case 'complete' : //登録完了
           $dataArr = $_POST;
           $dataArr['password']=sha1($dataArr['password']);//パスワードのハッシュ化
-
           //↓この情報はいらないので外しておく
           unset($dataArr['complete']);
           unset($dataArr['password2']);
                   $res= $member->insertData($dataArr);
                     //登録成功時は完成ページへ
                     if($res===true){
+                      $_SESSION['dataArr'] = $dataArr;
                     header('Location:' . Bootstrap::ENTRY_URL. 'complete.php');//ページ遷移する関数
-                    exit();
                   }else {
                     //登録失敗時は登録画面に戻る
                     $template = 'regist.html.twig';

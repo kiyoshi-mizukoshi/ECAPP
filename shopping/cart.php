@@ -63,6 +63,7 @@ $num= (isset($_GET['num']) === true && preg_match('/^\d+$/' , $_GET['num']) === 
 if($item_id !== "" && $num !== '')
 {
   $res= $cart->updateCartData($customer_no, $item_id, $num);
+  header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');
 }elseif($item_id !== ''){
   $res = $cart->insCartData($customer_no, $item_id);
   header('Location: ' . Bootstrap::ENTRY_URL. 'cart.php');
