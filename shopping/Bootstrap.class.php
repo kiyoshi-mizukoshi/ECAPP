@@ -29,12 +29,12 @@ if (file_exists(__DIR__ . '/../.env')) {
   
 
 }else {
-  require_once '/app/vendor/autoload.php';
+  require_once './vendor/autoload.php';
 
   class Bootstrap
   {
     // const APP_DIR = '/Applications/MAMP/htdocs/ECAPP/';
-    const APP_DIR = "/app/";
+    const APP_DIR = "";
   
     const TEMPLATE_DIR = self::APP_DIR . 'templates/shopping/';
   
