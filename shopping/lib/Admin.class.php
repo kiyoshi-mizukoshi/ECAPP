@@ -44,8 +44,8 @@ public function selectData($aggregate)
 public function selectAdmin()
 {
   $table = ' member';
-  $column = ' mem_id, family_name, first_name, family_name_kana, first_name_kana, email, regist_date';
-  $where = '';
+  $column = ' mem_id, family_name, first_name, family_name_kana, first_name_kana, email, regist_date, delete_flg';
+  $where = 'delete_flg = 0 ';
   $arrVal = [];
   return $this->db->select($table, $column, $where, $arrVal);
 
@@ -129,5 +129,39 @@ public function removeProducts($id)
   return $this->db->delete($table, $where, $arrval);
 
 }
+
+public function updateImage($id,$img)
+{
+  $table = ' item ';
+  $insData = ['image' => $img];
+  $where = ' item_id = ? ';
+  $arrWhereVal =  [$id];
+
+  return $this->db->update($table, $insData, $where, $arrWhereVal);
+}
+
+public function delRegist($mem_id)
+{
+  $table = ' member ';
+  $insData = ['delete_date'=>date("Y-m-d H:i:s"),'delete_flg' => 1];
+  $where = ' mem_id = ? ';
+  $arrWhereVal = [$mem_id];
+  
+  return $this->db->update($table, $insData, $where, $arrWhereVal);  
+
+
+}
+
+public function adminLogin($dataArr)
+{
+
+  $table = ' admin';
+  $col = ' * ';
+  $where = 'email=' ."'".$dataArr['email'] ."'". ' AND password= '. "'".$dataArr['password']."'";
+  $res = $this->db->select($table, $col,$where);
+  return $res;
+
+}
+
 }
 ?>

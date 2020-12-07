@@ -33,6 +33,8 @@ $db = new PDODatabase(
 $ses = new Session($db);
 $admin = new Admin($db);
 $mem_id= (isset($_GET['mem_id']) === true ) ? $_GET['mem_id'] : '';
+$_SESSION['mem_id'] = $mem_id;
+
 $dataArr = '';
 $dataArr = $admin->selectAllAdmin($mem_id);
 $context = [];

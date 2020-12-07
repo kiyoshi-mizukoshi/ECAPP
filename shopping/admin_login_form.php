@@ -1,0 +1,76 @@
+<?php 
+namespace shopping;
+
+require_once dirname(__FILE__) . '/Bootstrap.class.php';
+
+use shopping\Bootstrap;
+use shopping\lib\PDODatabase;
+use shopping\lib\Session;
+use shopping\lib\Admin;
+
+$loader = new \Twig_Loader_Filesystem(Bootstrap::TEMPLATE_DIR);
+$twig = new \Twig_Environment($loader, ['cache' => Bootstrap::CACHE_DIR]);
+
+if (file_exists(__DIR__ . '/../.env')) {
+  $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+  $dotenv->load();
+}
+
+$DB_HOST = $_ENV["DB_HOST"];
+$DB_DATABASE = $_ENV["DB_DATABASE"];
+$DB_USERNAME = $_ENV["DB_USERNAME"];
+$DB_PASSWORD = $_ENV["DB_PASSWORD"];
+$db_type = 'mysql';
+
+$db = new PDODatabase(
+    $DB_HOST,
+    $DB_USERNAME,
+    $DB_PASSWORD,
+    $DB_DATABASE,
+    $db_type
+);
+$ses = new Session($db);
+$admin = new Admin($db);
+if (isset($_SESSION['id'])) {//ログインしているとき
+  $name =  $_SESSION['name'] . 'さん';
+  $link = '<a href="logout.php" class="header-nav-item-link">ログアウト</a>';
+  $regist = '';
+  $gest = '';
+} else {//ログインしていない時
+  $name = '<a class="header-nav-item-link" href="login_form.php">Login</a>';
+  $link = '<a class="header-nav-item-link" href="login_form.php">ログイン</a>';
+  $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
+  $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
+  
+}
+$msg='';
+if(!empty($_POST['submit'])===true)
+{
+  $dataArr=$_POST;
+  unset($dataArr['submit']);
+  $dataArr['password']=sha1($dataArr['password']);//パスワードのハッシュ化
+  $login = $admin->adminLogin($dataArr);
+  if(!empty($login)){
+    header('Location: ' . Bootstrap::ENTRY_URL. 'admin.php');
+  }else{
+    $msg = 'メールアドレスかパスワードが一致しません';
+  }
+}
+if(!empty($_POST['gest']) === true)
+{
+  header('Location: ' . Bootstrap::ENTRY_URL. 'admin.php');
+}
+$context = [];
+$context['name'] = $name;
+$context['gest'] = $gest;
+$context['link'] = $link;
+$context['regist'] = $regist;
+$context['cateArr'] = $_SESSION['cateArr'];
+$context['msg'] = $msg;
+
+
+$template = $twig->loadTemplate('admin_login_form.html.twig');
+$template->display($context);
+
+
+

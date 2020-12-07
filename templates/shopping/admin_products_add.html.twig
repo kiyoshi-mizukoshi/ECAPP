@@ -5,43 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
-
 
   <title>Document</title>
 </head>
 <body>
+  <div class="products-add inner">
+  <h2 class="admin-title">商品登録</h2>
 <form action="" method="post" enctype="multipart/form-data">
   <table>
     <tr>
       <th>商品名</th>
-      <th>説明文</th>
-      <th>価格</th>
-      <th>画像</th>
-      <th>カテゴリー</th>
+      <td><input type="text" name="item_name" id="" value="" required></td>
     </tr>
     <tr>
-      <td><input type="text" name="item_name" id="" value="" required></td>
+      <th>説明文</th>
       <td><textarea name="detail" id="" cols="30" rows="10" value="" required></textarea></td>
+    </tr>
+    <tr>
+      <th>価格</th>
       <td><input type="text" name="price" id="" value="" required></td>
+    </tr>
+    <tr>
+      <th>画像</th>
       <td><input type="file" name="image" id="input-file" value="" required></td>
+    </tr>
+    <tr>
+      <th>カテゴリー</th>
       <td><select name="ctg_id" id="" value="">
         {% for value in cateArr %}
         <option value="{{value.ctg_id}}" name="ctg_id">{{value.category_name}}</option>
         {% endfor %}
       </select></td>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><div id="preview"></div>
-      </td>
-      <td></td>
-    </tr>
+
   </table>
   <input type="submit" value="商品追加" name="submit">
   {{msg}}
 </form>
+</div>
 </body>
 </html>

@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
+  <h2 class="util-title">カテゴリ管理</h2>
+  <div class="category inner">
   <table>
     <tr>
       <th>カテゴリ名</th>
@@ -22,5 +26,8 @@
   <input type="submit" value="追加" name="submit">
 </form>
 {{msg}}
+<a href="admin.php" class="admin-link">管理トップへ</a>
+
+</div>
 </body>
 </html>

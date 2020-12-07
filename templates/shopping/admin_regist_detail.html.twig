@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{constant('shopping\\Bootstrap::APP_URL')}}js/shopping.js"></script>
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
   <title>Document</title>
 </head>
 <body>
@@ -43,5 +47,8 @@
     </tr>
   </table>
       <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}admin_regist.php">戻る</a>
+      <form action="" method="post">
+      <input type="button" name="remove" id="mem-remove" value="削除">
+      </form>
 </body>
 </html>

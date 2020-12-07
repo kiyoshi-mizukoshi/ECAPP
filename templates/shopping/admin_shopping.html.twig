@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">
-  <title>売上管理</title>
+  <link rel="stylesheet" href="{{constant('shopping\\Bootstrap::APP_URL')}}css/reset.css">
+  <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">  <title>売上管理</title>
 </head>
 <body>
   <div class="admin-shopping inner">
@@ -35,6 +35,8 @@
       {% endfor %}
     </table>
     {% endif %}
+    <a href="admin.php" class="admin-link">トップへ</a>
+
   </div>
 </body>
 </html>

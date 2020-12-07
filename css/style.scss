@@ -1550,4 +1550,115 @@ text-align: center;
   height: 180px;
 }
 
+  .admin-title{
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
+    padding-top: 15px;
+    @include mq(sm)
+    {
+      font-size: 30px;
+      padding-top: 10px;
+    }
+  
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 160px;
+      background-color: $primary_color;
+      margin: 16px  0;
+    }
+  
+  }
 
+/**********************************************
+  # admin
+***************************************************/
+
+  .admin  {
+    >h3{
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+  }
+  .admin-link{
+    text-decoration: underline;
+    font-size: 18px;
+    color: $primary_color;
+    &:hover{
+      opacity: .7;
+      transition: .4s;
+    }
+    @include mq(sm)
+    {
+      font-size: 12px;
+      margin-top: 8px;
+    }
+  
+  }
+
+  .period {
+    margin: 18px 0 ;
+  }
+
+  .admin-shopping {
+    text-align: center;
+
+    
+      table {
+        width: 100%;
+        max-width: 980px;
+        margin: 15px auto 30px;
+        border-collapse: collapse;
+          }
+        tr{
+          border: solid 1px #898989;
+        
+        }
+          th{
+            background-color: $primary_color;
+            border: solid 1px #898989;
+            color: #fff;
+            padding: 18px;
+        
+          }
+          td{
+            border: solid 1px #898989;
+            text-align: center;
+            padding: 10px;
+            }
+  }
+
+  .category{
+    text-align: center;
+
+    table {
+      margin: 0 auto;
+      margin-top: 10px;
+
+    }
+
+    th {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+  }
+
+  .category-add {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+textarea{
+  resize: vertical;
+}
+
+.update {
+  td>img{
+    width: 120px;
+    height: 120px;
+  }
+}
