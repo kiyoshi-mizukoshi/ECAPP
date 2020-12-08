@@ -7,6 +7,8 @@
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">  <title>Document</title>
 </head>
 <body>
+  <div class="contact inner">
+    <h2 class="util-title">内容確認</h2>
   <form action="" method="post">
   <table>
     <tr>
@@ -22,7 +24,10 @@
       <td>カテゴリー : {{ctg}}</td>
     </tr>
   </table>
-  <input type="submit" value="変更する" name="submit">
+  <div class="util-link-wrap">
+  <input type="submit" value="変更する" name="submit" class="util-link">
+  </div>
 </form>
+</div>
 </body>
 </html>
