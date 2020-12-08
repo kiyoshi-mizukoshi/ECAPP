@@ -11,39 +11,48 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="products-add inner">
-  <h2 class="admin-title">商品登録</h2>
-<form action="" method="post" enctype="multipart/form-data">
-  <table>
-    <tr>
-      <th>商品名</th>
-      <td><input type="text" name="item_name" id="" value="" required></td>
-    </tr>
-    <tr>
-      <th>説明文</th>
-      <td><textarea name="detail" id="" cols="30" rows="10" value="" required></textarea></td>
-    </tr>
-    <tr>
-      <th>価格</th>
-      <td><input type="text" name="price" id="" value="" required></td>
-    </tr>
-    <tr>
-      <th>画像</th>
-      <td><input type="file" name="image" id="input-file" value="" required></td>
-    </tr>
-    <tr>
-      <th>カテゴリー</th>
-      <td><select name="ctg_id" id="" value="">
-        {% for value in cateArr %}
-        <option value="{{value.ctg_id}}" name="ctg_id">{{value.category_name}}</option>
-        {% endfor %}
-      </select></td>
-    </tr>
+  <div class="admin-products inner">
+    <div class="contact-wrap">
+      <h2 class="util-title">商品登録</h2>
+      <form action="" method="post" enctype="multipart/form-data">
+        <dl class="admin-products-list">
+          <div class="admin-products-item">
+            <dt class="admin-products-item-title"> 商品名：</dt>
+            <dd class="admin-products-item-input"><input type="text" name="name" size="50" value="" required></dd>
+          </div>
+          <div class="admin-products-item">
+            <dt class="admin-products-item-title">価格：</dt>
+            <dd class="admin-products-item-input"><input type="text" name="price" id="" value="" required></dd>
+          </div>
+          <div class="admin-products-item">
+            <dt class="admin-products-item-title">説明文：</dt>
+            <dd class="admin-products-item-input"><textarea name="detail" id="" cols="30" rows="10" value="" required></textarea></dd>
+          </div>
+          <div class="admin-products-item">
+            <dt class="admin-products-item-title">画像：</dt>
+            <dd class="admin-products-item-input"><input type="file" name="image" id="input-file" value="" required></dd>
+          </div>
+          <div class="admin-products-item">
+            <dt class="admin-products-item-title">画像プレビュー：</dt>
+            <dd class="admin-products-item-input"><div id="preview"></div></dd>
+          </div>
 
-  </table>
-  <input type="submit" value="商品追加" name="submit">
-  {{msg}}
-</form>
-</div>
+          <div class="admin-products-item">
+            <dt class="admin-products-item-title">カテゴリー：</dt>
+            <dd class="admin-products-item-input"><select name="ctg_id" id="" value="">
+              {% for value in cateArr %}
+              <option value="{{value.ctg_id}}" name="ctg_id">{{value.category_name}}</option>
+              {% endfor %}
+            </select></dd>
+          </div>
+
+        </dl>
+        <div class="admin-products-footer">
+          <input type="submit" name="submit" value="商品追加" class="util-link">
+        </div>
+        {{msg}}
+      </form>
+    </div>
+  </div>
 </body>
 </html>

@@ -39,7 +39,6 @@ $dataArr = $_SESSION['detail'];
 $id= $_SESSION['item_id'];
 $ctg_id=$_SESSION['detail']['ctg_id'];
 $ctg = $admin->productsCategory($ctg_id);
-var_dump($dataArr);
 if(!empty($_POST['submit'])){
   $update = $admin->updateProducts($dataArr,$id);
   header('Location: ' . Bootstrap::ENTRY_URL. 'admin_products_complete.php');

@@ -35,7 +35,6 @@ $ses = new Session($db);
 $admin = new Admin($db);
 $itm = new Item($db);
 $id=$_SESSION['item_id'];
-
 $msg='';
 $detail='';
 $detail=$_POST;

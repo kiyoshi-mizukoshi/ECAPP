@@ -10,7 +10,10 @@
   <title>Document</title>
 </head>
 <body>
-  <table>
+<div class="inner section mypage">
+  <div class="mypage-wrap">
+    <h2 class="util-title">会員情報詳細・編集</h2>
+  <table class="table">
     <tr>
       <th>お名前（氏名) :</th>
       <td>{{dataArr[0].family_name}} {{dataArr[0].first_name}}</td>
@@ -46,9 +49,13 @@
       <td>{{dataArr[0].regist_date}}</td>
     </tr>
   </table>
-      <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}admin_regist.php">戻る</a>
       <form action="" method="post">
-      <input type="button" name="remove" id="mem-remove" value="削除">
+        <div class="util-link-wrap">
+        <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}admin_regist.php" class="util-link">戻る</a>
+        <input type="button" name="remove" id="mem-remove" value="削除" class="util-link">
+      </div>
       </form>
+    </div>
+  </div>
 </body>
 </html>

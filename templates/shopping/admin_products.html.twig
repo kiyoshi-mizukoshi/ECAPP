@@ -7,15 +7,15 @@
   <link href="{{constant('shopping\\Bootstrap::APP_URL')}}css/style.css" rel="stylesheet">  <title>Document</title>
 </head>
 <body>
+<div class="admin-products-all inner">
+  <h2 class="util-title">商品一覧・編集</h2>
   <table>
     <tr>
       <th>ID</th>
       <th>商品名</th>
-      <th>説明文</th>
       <th>価格</th>
-      <th>画像</th>
       <th>カテゴリー</th>
-      <th>編集</th>
+      <th>詳細・編集</th>
     </tr>
       {% for value in dataArr %}
     <tr>
@@ -23,9 +23,7 @@
       <td>
         {{value.item_name}}
       </td>
-      <td>{{value.detail}}</td>
       <td>{{value.price}}</td>
-      <td>{{value.image}}</td>
       <td>{{value.category_name}}</td>
       <td>
         <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}admin_products_update.php?item_id={{value.item_id}}">編集</a>
@@ -33,5 +31,9 @@
     </tr>
       {% endfor %}
   </table>
+  <div class="util-link-wrap">
+    <a href="admin.php" class="util-link">管理トップへ</a>
+  </div>  
+</div>
 </body>
 </html>
