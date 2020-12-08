@@ -46,15 +46,18 @@
             </div>
             <div class="cart-item-body">
               <p class="cart-item-name">商品名: {{value.item_name}}</p>
-              <h3 class="cart-item-cost">価格: &yen;{{value.price|number_format(0, '.', ',')}}</h3>
+              <h3 class="cart-item-cost">価格: &yen;{{value.price|number_format(0, '.', ',')}} 数量:{{value.num}}</h3>
+              <form action="" method="GET">
               <p class="cart-item-num"> 数量:<select name="num" class="cart-number" id="cart-num">
-                <option value="1" {% if value.num == 1 %}selected{% endif %}>1</option>
-                <option value="2" {% if value.num == 2 %}selected{% endif %}>2</option>
-                <option value="3" {% if value.num == 3 %}selected{% endif %}>3</option>
-                <option value="4" {% if value.num == 4 %}selected{% endif %}>4</option>
-                <option value="5" {% if value.num == 5 %}selected{% endif %}>5</option>
-              </select><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}cart.php?crt_id={{value.crt_id}}"><button type="button" class="del-btn">削除</button></a></p>
-              <input type="hidden" name="item_id" id="item_id" value="{{value.item_id}}" class="item_id">
+                <option value="1" {% if value.num == 1 %}selected{% endif %} name="num">1</option>
+                <option value="2" {% if value.num == 2 %}selected{% endif %} name="num">2</option>
+                <option value="3" {% if value.num == 3 %}selected{% endif %} name="num">3</option>
+                <option value="4" {% if value.num == 4 %}selected{% endif %} name="num">4</option>
+                <option value="5" {% if value.num == 5 %}selected{% endif %} name="num">5</option>
+              </select><input type="submit" name="submit" value="変更" class="del-btn"><a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}cart.php?crt_id={{value.crt_id}}"><button type="button" class="del-btn">削除</button></a></p>
+                            <input type="hidden" name="item_id" id="item_id" value="{{value.item_id}}" class="item_id">
+
+              </form>
               <p class="cart-item-sumnum">合計金額: &yen;{{value.price|number_format(0, '.', ',')*value.num}}</p>
             </div>
           </div>

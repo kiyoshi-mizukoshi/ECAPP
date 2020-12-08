@@ -34,17 +34,6 @@ $('#mem-remove').click(function(){
     fileReader.readAsDataURL(file);
 });
 
-  $(".cart-number").change(function() {
-
-    var num = $('option:selected').val();
-    $("select").append('<input type="hidden"name="item_id2" id="item_id2" value={{value.item_id}} class="item_id2">');
-    var item_id =$(".item_id").val();
-
-    console.log(item_id);
-    location.href = entry_url + "cart.php?item_id=" + item_id + "&num=" + num;
-
-});
-
   var entry_url = $("#entry_url").val();
 
   $("#cart_in").click(function(){
