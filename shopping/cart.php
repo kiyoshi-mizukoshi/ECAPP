@@ -55,7 +55,6 @@ if (isset($_SESSION['id'])) {//ログインしているとき
   $gest ='<a class="header-nav-item-link" href="gestlogin.php">ゲストログイン</a>';
   $regist = '<a class="header-nav-item-link" href="regist.php">会員登録</a>';
 }
-
 //item_idを取得する
 $item_id = (isset($_GET['item_id']) === true && preg_match('/^\d+$/' , $_GET['item_id']) === 1) ? $_GET['item_id'] : '';
 $crt_id = (isset($_GET['crt_id']) === true && preg_match('/^\d+$/' , $_GET['crt_id']) === 1) ? $_GET['crt_id'] : '';

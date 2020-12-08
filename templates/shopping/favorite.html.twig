@@ -42,7 +42,19 @@
             <div class="favorite-item-body">
               <p class="favorite-item-name">商品名: {{value.item_name}}</p>
               <h3 class="favorite-item-cost">価格: &yen;{{value.price|number_format(0, '.', ',')}}</h3>
-              <p class="favorite-item-link"> {{value.num}}<a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}cart.php?item_id={{value.item_id}}" class="util-link">追加</a>
+              <p class="favorite-item-link"><div class="detail-form-wrap">
+                <form action="" method="get">
+                  数量:<select name="num" class="cart-num">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                        <input type="hidden" name="item_id" value="{{value.item_id}}">
+                    <input type="submit" name="cart_in" value="カートへ入れる" id="cart_in" class="cart-btn">
+                </form>
+              </div>
               <a href="{{constant('shopping\\Bootstrap::ENTRY_URL')}}favorite.php?item_id={{value.item_id}}" class="util-link">削除</a></p>
             </div>
           </div>
