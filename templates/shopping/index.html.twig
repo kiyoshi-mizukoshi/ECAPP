@@ -63,11 +63,18 @@
       {% endfor %}
       </ul>
     </div>
-    <div class="util-link-wrap">
+    <div class="pagenation-wrap">
     {% if page > 1 %}
-      <a href="index.php?page={{page-1}}#products" class="util-link">前ページへ</a>
+      <a href="index.php?page={{page-1}}#products" class="">前へ</a>
     {% endif %}
-    {% if page < maxpage %}<a href="index.php?page={{page+1}}#products" class="util-link">次ページへ</a>
+    {% for i in 1..maxpage %}
+    {% if i == page %}
+      <span class="pagenation-num">{{i}}</span>
+    {% else %}
+    <a href="index.php?page={{i}}#products" class="">{{i}}</a>
+    {% endif %}
+    {% endfor %}
+    {% if page < maxpage %}<a href="index.php?page={{page+1}}#products" class="">次へ</a>
 {% endif %}
     </div>
     <!-- /.products -->

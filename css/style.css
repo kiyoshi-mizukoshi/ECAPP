@@ -125,6 +125,21 @@ button a {
   }
 }
 
+.pagenation-num {
+  margin: 15px;
+}
+
+.pagenation-wrap {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.pagenation-wrap a {
+  margin: 15px;
+  cursor: pointer;
+  color: #3EA1D1;
+}
+
 /**********************************************
   # header
 ***************************************************/
@@ -344,6 +359,12 @@ button a {
 @media screen and (min-width: 768px) {
   .products-item-link:hover .products-item-picture > img {
     transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .products-item-title {
+    font-size: 12px;
   }
 }
 
